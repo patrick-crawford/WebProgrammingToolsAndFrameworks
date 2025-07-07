@@ -32,35 +32,35 @@ To get a sense of how to write code using the tools for this course and to ensur
 
 ## Node.js Globals
 
-Regarding the code that we wrote, it’s very simple; however we have made an important assumption: that we have access to a global **“console”** object. In Node.js we have access to [a number of global objects / variables](https://nodejs.dev/en/api/v19/globals/) in addition to [the built-in objects that are built into the JavaScript language](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects). Some of the Node.js Globals that we will be using include:
+Regarding the code that we wrote, it’s very simple; however we have made an important assumption: that we have access to a global **“console”** object. In Node.js we have access to [a number of global objects / variables](https://nodejs.org/docs/latest/api/globals.html) in addition to [the built-in objects that are built into the JavaScript language](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects). Some of the Node.js Globals that we will be using include:
 
 ### console
 
-The [console object](https://nodejs.dev/en/api/v19/console/) provides a simple debugging console that is similar to the JavaScript console mechanism provided by web browsers.
+The [console object](https://nodejs.org/docs/latest/api/console.html) provides a simple debugging console that is similar to the JavaScript console mechanism provided by web browsers.
 
 Some of the key methods that we will be using are:
 
 <ul>
-<li><a href="https://nodejs.dev/en/api/v19/console/#consolelogdata-args" target="_blank">console.log()</a></li>
-<li><a href="https://nodejs.dev/en/api/v19/console/#consoletimelabel" target="_blank">console.time()</a> / <a href="https://nodejs.dev/en/api/v19/console/#consoletimeendlabel" target="_blank">console.timeEnd()</a></li>
-<li><a href="https://nodejs.dev/en/api/v19/console/#consoledirobj-options" target="_blank">console.dir()</a></li>
+<li><a href="https://nodejs.org/docs/latest/api/console.html#consolelogdata-args" target="_blank">console.log()</a></li>
+<li><a href="https://nodejs.org/docs/latest/api/console.html#consoletimelabel" target="_blank">console.time()</a> / <a href="https://nodejs.org/docs/latest/api/console.html#consoletimeendlabel" target="_blank">console.timeEnd()</a></li>
+<li><a href="https://nodejs.org/docs/latest/api/console.html#consoledirobj-options" target="_blank">console.dir()</a></li>
 </ul>
 
 ### process
 
-The [process object](https://nodejs.dev/en/api/v19/process/) is a global instance of the <a href="https://nodejs.dev/en/api/v19/events#class-eventemitter" target="_blank">EventEmitter</a> class that provides information about, and control over, the current Node.js process. It exposes many properties, methods and events related to controlling system interactions.
+The [process object](https://nodejs.org/docs/latest/api/process.html) is a global instance of the <a href="https://nodejs.org/docs/latest/api/events.html#class-eventemitter" target="_blank">EventEmitter</a> class that provides information about, and control over, the current Node.js process. It exposes many properties, methods and events related to controlling system interactions.
 
 Some of the key elements that we will be using are:
 
 <ul>
-<li>Methods: process.on(), <a href="https://nodejs.dev/en/api/v19/process/#processabort" target="_blank">process.abort()</a>, <a href="https://nodejs.dev/en/api/v19/process/#processkillpid-signal">process.kill()</a>, <a href="https://nodejs.dev/en/api/v19/process/#processexitcode" target="_blank">process.exit()</a></li>
-<li>Properties: <a href="https://nodejs.dev/en/api/v19/process/#processstdin">process.stdin</a>, <a href="https://nodejs.dev/en/api/v19/process/#processstdout">process.stdout</a>, <a href="https://nodejs.dev/en/api/v19/process/#processstderr">process.stderr</a>, <a href="https://nodejs.dev/en/api/v19/process/#processpid" target="_blank">process.pid</a>, <a href="https://nodejs.dev/en/api/v19/process/#processenv" target="_blank">process.env</a></li>
-<li>Events: <a href="https://nodejs.dev/en/api/v19/process/#beforeexit" target="_blank">beforeExit</a>, <a href="https://nodejs.dev/en/api/v19/process/#exit" target="_blank">Exit</a>, <a href="https://nodejs.dev/en/api/v19/process/#uncaughtexception" target="_blank">uncaughtException</a></li>
+<li>Methods: process.on(), <a href="https://nodejs.org/docs/latest/api/process.html#processabort" target="_blank">process.abort()</a>, <a href="https://nodejs.org/docs/latest/api/process.html#processkillpid-signal">process.kill()</a>, <a href="https://nodejs.org/docs/latest/api/process.html#processexitcode" target="_blank">process.exit()</a></li>
+<li>Properties: <a href="https://nodejs.org/docs/latest/api/process.html#processstdin">process.stdin</a>, <a href="https://nodejs.org/docs/latest/api/process.html#processstdout">process.stdout</a>, <a href="https://nodejs.org/docs/latest/api/process.html#processstderr">process.stderr</a>, <a href="https://nodejs.org/docs/latest/api/process.html#processpid" target="_blank">process.pid</a>, <a href="https://nodejs.org/docs/latest/api/process.html#processenv" target="_blank">process.env</a></li>
+<li>Events: <a href="https://nodejs.org/docs/latest/api/process.html#event-beforeexit" target="_blank">beforeExit</a>, <a href="https://nodejs.org/docs/latest/api/process.html#event-exit" target="_blank">Exit</a>, <a href="https://nodejs.org/docs/latest/api/process.html#event-uncaughtexception" target="_blank">uncaughtException</a></li>
 </ul>
 
 ### \_\_dirname
 
-[\_\_dirname](https://nodejs.dev/en/api/v19/modules#__dirname) is used to obtain name of the directory that the currently executing script resides in.
+[\_\_dirname](https://nodejs.org/docs/latest/api/modules.html#__dirname) is used to obtain name of the directory that the currently executing script resides in.
 
 For example: if our .js file is located in /Users/pcrawford/ex1.js:
 
@@ -71,7 +71,7 @@ console.log(__dirname);
 
 ### \_\_filename
 
-[\_\_filename](https://nodejs.dev/en/api/v19/modules#**filename) is be used to obtain file containing the code being executed as well as the directory. This is the resolved absolute path of this code file.
+[\_\_filename](https://nodejs.org/docs/latest/api/modules.html#__filename) is used to obtain file containing the code being executed as well as the directory. This is the resolved absolute path of this code file.
 
 For example: if our .js file is located in /Users/pcrawford/ex1.js:
 
@@ -82,7 +82,7 @@ console.log(__filename);
 
 ### setTimeout()
 
-The [setTimeout()](https://nodejs.dev/en/api/v19/timers/#settimeoutcallback-delay-args) function will execute a piece of code (function) after a certain delay. It accepts 3 parameters:
+The [setTimeout()](https://nodejs.org/docs/latest/api/timers.html#settimeoutcallback-delay-args) function will execute a piece of code (function) after a certain delay. It accepts 3 parameters:
 
 <ul>
 <li><strong>callback</strong> Function: The function to call when the timer elapses.</li>
@@ -101,7 +101,7 @@ setTimeout(function () {
 
 ### setInterval()
 
-The [setInterval()](https://nodejs.dev/en/api/v19/timers/#setintervalcallback-delay-args) function will execute a piece of code (function) after a certain delay and continue to call it repeatedly. It accepts 3 parameters (below) and returns a <a href="https://nodejs.dev/en/api/v19/timers#timeout" target="_blank">timeout</a> object
+The [setInterval()](https://nodejs.org/docs/latest/api/timers.html#setintervalcallback-delay-args) function will execute a piece of code (function) after a certain delay and continue to call it repeatedly. It accepts 3 parameters (below) and returns a <a href="https://nodejs.org/docs/latest/api/timers.html#timeout" target="_blank">timeout</a> object
 
 <ul>
 <li><strong>callback</strong> Function: The function to call when the timer elapses.</li>
@@ -109,7 +109,7 @@ The [setInterval()](https://nodejs.dev/en/api/v19/timers/#setintervalcallback-de
 <li><strong>[, …arg]</strong> Optional arguments to pass when the callback is called.</li>
 </ul>
 
-**Note:** Unless you want the interval to continue forever, you need to call <a href="https://nodejs.dev/en/api/v19/timers#clearintervaltimeout" target="_blank">clearInterval()</a> with the timeout object as a parameter to halt the interval
+**Note:** Unless you want the interval to continue forever, you need to call <a href="https://nodejs.org/docs/latest/api/timers.html#clearintervaltimeout" target="_blank">clearInterval()</a> with the timeout object as a parameter to halt the interval
 
 For example:
 
@@ -131,7 +131,7 @@ let checkMaximum = function () {
 
 ### URL
 
-The [URL](https://nodejs.dev/en/api/v19/url/) class is used to create a new URL object by parsing the full URL string, ie:
+The [URL](https://nodejs.org/docs/latest/api/url.html) class is used to create a new URL object by parsing the full URL string, ie:
 
 ```js
 let myURL = new URL('https://myProductInventory.com/products?sort=asc&onSale=true');
@@ -174,7 +174,7 @@ key: onSale value: true
 
 ## Built-In Modules / 'require()'
 
-You may have noticed that some of the examples from the documentation include a mandatory ['require()'](https://nodejs.dev/en/api/v19/modules#requireid) statement. For example, if we try to execute this _simplified_ 'EventEmitter' sample from the documentation:
+You may have noticed that some of the examples from the documentation include a mandatory ['require()'](https://nodejs.org/docs/latest/api/modules.html#requireid) statement. For example, if we try to execute this _simplified_ 'EventEmitter' sample from the documentation:
 
 ```js
 const myEmitter = new EventEmitter();
@@ -200,11 +200,11 @@ myEmitter.on('event', function () {
 myEmitter.emit('event');
 ```
 
-By using the global ['require'](https://nodejs.dev/en/api/v19/esm/#require) function, we have loaded a code "module" which contains code and logic that we can use in our own solutions. We will discuss modules in detail in the "Web Server Introduction" section (see: ["Modules & Node Package Manager"](/Web-Server-Introduction/modules-node-package-manager)), however for now we should be aware of the following "Built-In" modules:
+By using the global ['require'](https://nodejs.org/docs/latest/api/esm.html#require) function, we have loaded a code "module" which contains code and logic that we can use in our own solutions. We will discuss modules in detail in the "Web Server Introduction" section (see: ["Modules & Node Package Manager"](/Web-Server-Introduction/modules-node-package-manager)), however for now we should be aware of the following "Built-In" modules:
 
 ### fs
 
-The ['fs' module](https://nodejs.dev/en/api/v19/fs/) is used to work directly with the file system (ie: read / write files, list the contents of a directory, etc). For example, if we had a CSV file with names, (ie: _names.csv_):
+The ['fs' module](https://nodejs.org/docs/latest/api/fs.html) is used to work directly with the file system (ie: read / write files, list the contents of a directory, etc). For example, if we had a CSV file with names, (ie: _names.csv_):
 
 ```csv
 Jacob,Alexandra,Jessie,Ranya,Felix
@@ -239,7 +239,7 @@ fs.readdir('img', function (err, filesArray) {
 
 ### path
 
-The ['path' module](https://nodejs.dev/en/api/v19/path/) provides utilities for working with file and directory paths. This will be useful when working with reading template files or writing uploaded files. For example, it can easily be used to safely concatenate two directories / paths together:
+The ['path' module](https://nodejs.org/docs/latest/api/path.html) provides utilities for working with file and directory paths. This will be useful when working with reading template files or writing uploaded files. For example, it can easily be used to safely concatenate two directories / paths together:
 
 <!-- prettier-ignore-start -->
 
@@ -257,7 +257,7 @@ console.log(path.join(__dirname, '\about.html')); // with incorrect leading slas
 
 ### readline
 
-The ['readline' module](https://nodejs.dev/en/api/v19/readline/) provides an way to read data from a "Readable stream" (such as process.stdin) one line at a time. For example, we can use this to prompt the user to enter data in the console using the following code:
+The ['readline' module](https://nodejs.org/docs/latest/api/readline.html) provides a way to read data from a "Readable stream" (such as process.stdin) one line at a time. For example, we can use this to prompt the user to enter data in the console using the following code:
 
 ```js
 const readline = require('readline');

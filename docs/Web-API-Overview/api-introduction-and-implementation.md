@@ -154,4 +154,4 @@ app.put('/api/users/:userId', (req, res) => {
 
 If we try running the server to test the API again, we will see that the messages returned back from the server correctly echo the data sent to the API. We now have everything that we need to preform simple CRUD operations via AJAX on a data source using a web service. The only thing missing is the data store itself.
 
-> **NOTE:** If we want to allow the API to respond to requests from _outside_ the domain (this is what [https://reqres.in](https://reqres.in/) does), we will have to enable [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS) - see the third-party [CORS middleware](https://www.npmjs.com/package/cors)
+> **NOTE:** If we want to allow the API to respond to requests from _outside_ the domain (this is what [https://jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com/) does), we will have to enable [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS) - see the third-party [CORS middleware](https://www.npmjs.com/package/cors)

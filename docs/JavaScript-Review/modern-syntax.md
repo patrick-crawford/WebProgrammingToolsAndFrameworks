@@ -33,7 +33,7 @@ let adderArrow = (num1, num2) => {
 };
 ```
 
-Essentially, we have removed the "function" keyword and replaced it with an arrow following the parameter list. While this is indeed shorter, we can compress the function expression even further as arrow functions use an "implicit return". This means that if the curly brackets ("{" and "}") are _omitted_ from the arrow function, the inner expression is returned:
+Essentially, we have removed the "function" keyword and replaced it with an arrow following the parameter list. While this is indeed shorter, we can compress the function expression even further as arrow functions use an "implicit return". This means that if the curly brackets ("&#123;" and "&#125;") are _omitted_ from the arrow function, the inner expression is returned:
 
 ```js
 let adderArrowShort = (num1, num2) => num1 + num2;
@@ -247,7 +247,7 @@ console.log(x + " + " + y + " = " + (x + y)); // 5 + 6 = 11
 
 However, wouldn't it be simpler if we could have a single string with _placeholders_ for data, rather than multiple strings placed _next_ to data, concatenated using the "+" operator?
 
-Fortunately, ES6 has introduced ["Template literals"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) sometimes called "Template strings", which use the ( **`** ) character to define the string and the "${expression}" syntax to insert an expression into the string to be evaluated.
+Fortunately, ES6 has introduced ["Template literals"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) sometimes called "Template strings", which use the ( **`** ) character to define the string and the "$&#123;expression&#125;" syntax to insert an expression into the string to be evaluated.
 
 Using this, we can re-write our above example to remove the "+" operator and instead use the more concise (and easier to read):
 
@@ -258,7 +258,7 @@ console.log(`${x} + ${y} = ${x + y}`); // 5 + 6 = 11
 ```
 <!-- prettier-ignore-end -->
 
-Additionally, since the "${}" syntax within the template literal allows to evaluate an expression, we can also execute functions and other logic within the string definition, such as:
+Additionally, since the "$&#123;&#125;" syntax within the template literal allows to evaluate an expression, we can also execute functions and other logic within the string definition, such as:
 
 ```js
 let shapes = ['circle', 'square', 'triangle'];
@@ -322,7 +322,7 @@ PI = 99;
 console.log(`Haha! PI is now: ${PI}`);
 ```
 
-Here, we are trying to change the value of a constant: PI. If we try to run this short program in Node.js, the program will crash before we get a chance to see the string "Haha! PI is now: 99", or even "Haha! PI is now: 3.14159". There is no elegant recovery and we do not get to exit the program gracefully. This can be a huge problem if, for example we were working with a live connection to a service and an unexpected error occurred. Our program would crash and we would not be able to respond to the error by alerting the user and properly closing the connection. Fortunately, before our program crashes in such a way, Node.js will **"throw"** an **["Error"](https://nodejs.dev/en/api/v19/errors/#class-error)** object that we can intercept using the **["try...catch"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch)** statement:
+Here, we are trying to change the value of a constant: PI. If we try to run this short program in Node.js, the program will crash before we get a chance to see the string "Haha! PI is now: 99", or even "Haha! PI is now: 3.14159". There is no elegant recovery and we do not get to exit the program gracefully. This can be a huge problem if, for example we were working with a live connection to a service and an unexpected error occurred. Our program would crash and we would not be able to respond to the error by alerting the user and properly closing the connection. Fortunately, before our program crashes in such a way, Node.js will **"throw"** an **["Error"](https://nodejs.org/docs/latest/api/errors.html#class-error)** object that we can intercept using the **["try...catch"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/try...catch)** statement:
 
 ```js
 const PI = 3.14159;
@@ -338,7 +338,7 @@ try {
 console.log(`Alas, it cannot be done, PI remains: ${PI}`);
 ```
 
-If we execute the above code in Node.js we will find that our program doesn't crash and that our string: "Alas, it cannot be done, PI remains: 3.14159" gets correctly logged to the terminal! Additionally, we can execute a specific block of code right when the error is encountered; in this case we output "uh oh, an error occurred!". This is not very useful to help us debug the error, but it better than having the program crash and at least we know that an error did indeed occur. If we wish to obtain additional information about the error, we can make use of some of the properties / methods of the **[Error](https://nodejs.dev/en/api/v19/errors/#class-error)** object that was thrown as an exception and caught in our "catch" block. For example, we can alter the code to use the "message" property of the caught exception (ex) to display a more helpful error:
+If we execute the above code in Node.js we will find that our program doesn't crash and that our string: "Alas, it cannot be done, PI remains: 3.14159" gets correctly logged to the terminal! Additionally, we can execute a specific block of code right when the error is encountered; in this case we output "uh oh, an error occurred!". This is not very useful to help us debug the error, but it better than having the program crash and at least we know that an error did indeed occur. If we wish to obtain additional information about the error, we can make use of some of the properties / methods of the **[Error](https://nodejs.org/docs/latest/api/errors.html#class-error)** object that was thrown as an exception and caught in our "catch" block. For example, we can alter the code to use the "message" property of the caught exception (ex) to display a more helpful error:
 
 ```js
 const PI = 3.14159;
@@ -355,7 +355,7 @@ try {
 console.log(`Alas, it cannot be done, PI remains: ${PI}`);
 ```
 
-By utilizing properties such as [Error.message](https://nodejs.dev/en/api/v19/errors/#errormessage) & [Error.stack](https://nodejs.dev/en/api/v19/errors/#errorstack), we can gain further insight to exactly what went wrong and we can either refactor our code to remedy the error, or acknowledge that the error will happen and handle it gracefully.
+By utilizing properties such as [Error.message](https://nodejs.org/docs/latest/api/errors.html#errormessage) & [Error.stack](https://nodejs.org/docs/latest/api/errors.html#errorstack), we can gain further insight to exactly what went wrong and we can either refactor our code to remedy the error, or acknowledge that the error will happen and handle it gracefully.
 
 Lastly, if we have some code that we would like to execute regardless of whether or not the code in our "try" block is successful, we can use a "finally" block:
 
@@ -378,7 +378,7 @@ console.log(`Alas, it cannot be done, PI remains: ${PI}`);
 
 ### Throwing Errors
 
-Now that we know how to correctly handle errors that have been thrown by the Node.js runtime environment or by other code / modules included in our solutions, why don't we try throwing our **own exceptions**? This is very straightforward and only requires the use of the **["throw"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw)** keyword and (typically) an **[Error](https://nodejs.dev/en/api/v19/errors/#class-error)** Object:
+Now that we know how to correctly handle errors that have been thrown by the Node.js runtime environment or by other code / modules included in our solutions, why don't we try throwing our **own exceptions**? This is very straightforward and only requires the use of the **["throw"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw)** keyword and (typically) an **[Error](https://nodejs.org/docs/latest/api/errors.html#class-error)** Object:
 
 ```js
 function divide(x, y) {

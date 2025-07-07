@@ -7,7 +7,7 @@ description: Simple Web Server using Express.js
 
 # Simple Web Server using Express.js
 
-A major focus of these notes going forward will be creating modern web applications using Node.js. While are many ways of accomplishing this task, including using the built-in ['http' module](https://nodejs.dev/en/api/v19/http/), we will be using the extremely popular ["Express"](https://expressjs.com) web framework, [available on NPM](https://www.npmjs.com/package/express).
+A major focus of these notes going forward will be creating modern web applications using Node.js. While are many ways of accomplishing this task, including using the built-in ['http' module](https://nodejs.org/docs/latest/api/http.html), we will be using the extremely popular ["Express"](https://expressjs.com) web framework, [available on NPM](https://www.npmjs.com/package/express).
 
 ## Project Structure
 
@@ -82,7 +82,7 @@ const express = require('express'); // "require" the Express module
 const app = express(); // obtain the "app" object
 const HTTP_PORT = process.env.PORT || 8080; // assign a port
 
-// start the server on the port and output a confirmation ot the console
+// start the server on the port and output a confirmation to the console
 app.listen(HTTP_PORT, () => console.log(`server listening on: ${HTTP_PORT}`));
 ```
 
@@ -237,6 +237,6 @@ app.use(express.static('public'));
 
 Here, we have used ["express.static()"](https://expressjs.com/en/api.html#express.static) - a built-in [middleware](https://expressjs.com/en/guide/using-middleware.html#middleware.application) function (explained later in these notes) to mark the "public" directory as static. With this code in place, whenever a request is sent to our server, Express will first check to see if the requested resource exists in the "public" folder, before checking our other routes.
 
-## Public Hosting (Cyclic)
+## Public Hosting (Vercel)
 
-As a final exercise, review the documentation on ["Getting Started with Cyclic"](/Resources/cyclic-guide) and see if you can get the server running online!
+As a final exercise, review the documentation on ["Getting Started with Vercel"](/Resources/vercel-guide) and see if you can get the server running online!

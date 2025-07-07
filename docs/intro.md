@@ -96,4 +96,4 @@ description: Contents of Web Programming Tools and Frameworks
 
 <!-- - [Learning Resources](Resources/learning-resources) -->
 
-- [Cyclic Guide](Resources/cyclic-guide)
+- [Vercel Guide](Resources/vercel-guide)

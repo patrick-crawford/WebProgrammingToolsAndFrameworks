@@ -74,22 +74,27 @@ For complex queries (ie: ["greater than"](https://docs.mongodb.com/manual/refere
 
 ## Update
 
-To update documents in the database, we use the [updateOne()](<https://mongoosejs.com/docs/api/model.html#Model.updateOne()>) method on the model object (ie: "Company"). We typically pass this function two arguments: the query to select which documents to update and the fields to set for the documents that match the query.
+To update documents in the database, we use the [updateOne()](<https://mongoosejs.com/docs/api/model.html#Model.updateOne()>) / [updateMany()](<https://mongoosejs.com/docs/api/model.html#Model.updateMany()>) methods on the model object (ie: "Company"). We typically pass these function two arguments: the query to select which documents to update and the fields to set for the documents that match the query.
 
 > **NOTE:** See [update operators](https://docs.mongodb.com/manual/reference/operator/update/), ie: [$set](https://docs.mongodb.com/manual/reference/operator/update/set/), [$push](https://docs.mongodb.com/manual/reference/operator/update/push/) and [$addToSet](https://docs.mongodb.com/manual/reference/operator/update/addToSet/) for more information.
 
 <!-- prettier-ignore-start -->
 ```js
-Company.updateOne(
-  { companyName: 'The Kwik-E-Mart' }, 
-  { $set: { employeeCount: 3 } }
-).exec();
+Company.updateOne( { companyName: 'The Kwik-E-Mart' }, { $set: { employeeCount: 3 } })
+  .exec()
+  .then(() => {
+    // updated company
+    console.log('updated company');
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 ```
 <!-- prettier-ignore-end -->
 
 ## Delete
 
-To delete documents in the database, we use the [deleteOne()](<https://mongoosejs.com/docs/api/model.html#Model.deleteOne()>) method on the model object (ie: "Company").
+To delete documents in the database, we use the [deleteOne()](<https://mongoosejs.com/docs/api/model.html#Model.deleteOne()>) / [deleteMany()](<https://mongoosejs.com/docs/api/model.html#Model.deleteMany()>) methods on the model object (ie: "Company").
 
 ```js
 Company.deleteOne({ companyName: 'The Kwik-E-Mart' })

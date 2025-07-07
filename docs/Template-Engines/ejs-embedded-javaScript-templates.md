@@ -7,7 +7,7 @@ description: EJS (Embedded JavaScript Templates)
 
 # EJS (Embedded JavaScript Templates)
 
-[EJS](http://handlebarsjs.com/) is described as "a simple templating language that lets you generate HTML markup with plain JavaScript. No religiousness about how to organize things. No reinvention of iteration and control-flow. It's just plain JavaScript."
+[EJS](https://ejs.co/) is described as "a simple templating language that lets you generate HTML markup with plain JavaScript. No religiousness about how to organize things. No reinvention of iteration and control-flow. It's just plain JavaScript."
 
 It contains features that will help us generate HTML that renders complex data. For example, consider the problem with our “/viewData” route from the [introduction](Template-Engines/introduction.md); we can leverage the EJS template engine to write a simple (separate) HTML5 document that references the data using special delimiters, ie: `<%=` and `%>`, rather than returning a long, complex string from our route handler.
 
@@ -131,7 +131,7 @@ The `<%= ... %>` is not the only delimiter available to us. EJS also provides a 
 
 > **NOTE:** Delimiters that output a value (ie "HTML escaped" / "unescaped") are also capable of executing JavaScript expressions. For example, if "someValue" is a string, we could use the following code:
 >
-> <%= someValue.toUpperCase() %>
+> `<%= someValue.toUpperCase() %>`
 
 ### Includes / "Partials"
 

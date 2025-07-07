@@ -193,11 +193,11 @@ In 2015, ECMAScript 6 was released and many important features were introduced, 
 - [Promises](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 - [Binary & Octal literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar)
 - [Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
-- [and many more…](http://es6-features.org/)
+- [and many more…](https://www.w3schools.com/js/js_es6.asp)
 
 Since then, development of ECMAScript has continued and new versions are [released yearly](https://webreference.com/javascript/basics/versions). For a comprehensive list of which features are supported in specific browsers, environments and runtimes, see:
 
-- [ECMAScript Compatibility Table](https://kangax.github.io/compat-table/es2016plus/)
+- [ECMAScript Compatibility Table](https://compat-table.github.io/compat-table/es2016plus/)
 
 ### Node.js
 
@@ -218,7 +218,7 @@ Node.js also has an expansive package ecosystem accessible via it’s Node Packa
 
 [![Git Logo](/img/git-logo.png)](https://git-scm.com/)
 
-We will be using Git: a command-line tool which serves as a version control system used for tracking changes to your source code and making it available for collaboration with other developers (by leveraging online tools such as [Github](https://github.com/) or [GitLab](https://about.gitlab.com/)). Additionally, there are many online services that connect to your published code to 3rd party cloud platforms such as [Vercel](https://vercel.com/) or [Netlify](https://www.netlify.com/) which can build your code and host your web application. For this class, we will be using [Cyclic](https://www.cyclic.sh/) - please see the [Cyclic Guide](/Resources/cyclic-guide) for more information.
+We will be using Git: a command-line tool which serves as a version control system used for tracking changes to your source code and making it available for collaboration with other developers (by leveraging online tools such as [Github](https://github.com/) or [GitLab](https://about.gitlab.com/)). Additionally, there are many online services that connect to your published code to 3rd party cloud platforms such as [Render](https://render.com/) or [Netlify](https://www.netlify.com/) which can build your code and host your web application. For this class, we will be using [Vercel](https://vercel.com/) - please see the [Vercel Guide](/Resources/vercel-guide) for more information.
 
 There is a ton of information online on how to get started using Git / GitHub, such as:
 

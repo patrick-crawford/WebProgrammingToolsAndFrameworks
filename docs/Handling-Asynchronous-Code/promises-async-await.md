@@ -201,7 +201,7 @@ outputA()
 
 Now that we know how the promise object and pattern can help us manage our asynchronous code, let's loop back to our original problem - ensuring that "A", "B" and "C" are output in the correct order when invoking the "outputA()", "outputB()" and "outputC()" functions, respectfully.
 
-To make it more interesting, we will alter our code such that each of the functions **resolve** with the value if the _randomTime_ is _even_ and **reject** with an error if _randomTime_ is _odd_:
+To make it more interesting, we will alter our code such that each of the functions **resolve** with the value if the _randomTime_ is _odd_ and **reject** with an error if _randomTime_ is _even_:
 
 ```js
 // output "A" after a random time between 0 & 3 seconds

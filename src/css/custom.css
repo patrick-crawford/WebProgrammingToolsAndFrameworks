@@ -69,6 +69,6 @@ table {
   visibility: hidden;
 }
 
-.mermaid > svg {
-  width: 100%;
+table td {
+  text-align: left;
 }

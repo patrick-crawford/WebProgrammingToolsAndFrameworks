@@ -275,7 +275,6 @@ Fortunately, JavaScript has added the "extend" keyword so that we do not have to
 class Job {
   #name;
   #age;
-  #occupation;
 
   constructor(setName = '', setAge = 0) {
     this.#name = setName;

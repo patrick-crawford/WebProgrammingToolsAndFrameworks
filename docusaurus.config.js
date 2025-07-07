@@ -1,36 +1,37 @@
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
-const mdxMermaid = require('mdx-mermaid');
+const lightCodeTheme = require('prism-react-renderer').themes.github;
+const darkCodeTheme = require('prism-react-renderer').themes.dracula;
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
   title: 'Web Programming Tools and Frameworks',
-  tagline: 'Web Programming',
+  tagline: 'Course Notes for Web Programming Tools and Frameworks',
   url: 'https://patrick-crawford.github.io',
   baseUrl: '/WebProgrammingToolsAndFrameworks',
   trailingSlash: false,
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
-  organizationName: 'patrick-crawford',
+  organizationName: 'SDDS',
   projectName: 'WebProgrammingToolsAndFrameworks',
-
-  markdown: {
-    mermaid: true,
-  },
-  themes: ['@docusaurus/theme-mermaid'],
-
   themeConfig: {
     navbar: {
       title: 'Web Programming Tools and Frameworks',
       logo: {
-        alt: 'Seneca College',
+        alt: 'Seneca Polytechnic',
         src: 'img/logo.svg',
         srcDark: 'img/logo-dark.svg',
       },
     },
+    docs: {
+      sidebar: {
+        hideable: true,
+      },
+    },
     tableOfContents: {
-      maxHeadingLevel: 4,
+      minHeadingLevel: 2,
+      maxHeadingLevel: 5,
     },
     footer: {
       style: 'dark',
@@ -39,19 +40,15 @@ module.exports = {
           title: 'Web Programming Tools and Frameworks',
           items: [
             {
-              label: 'Contents',
-              to: '/',
-            },
-            {
               html: `<a href='#' id='pwa-button' class='footer__link-item' hidden>Install as an App</a>`,
             },
             {
-              html: `<a href='../Web-Programming-Tools-and-Frameworks.pdf' id='download-pdf' class='footer__link-item' download='Web-Programming-Tools-and-Frameworks.pdf'>Download Notes (PDF)</a>`,
+              html: `<a href='../Web-Programming-for-Apps-and-Services.pdf' id='download-pdf' class='footer__link-item' download='Web-Programming-for-Apps-and-Services.pdf'>Download Notes (PDF)</a>`,
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Chris Szalwinski and Seneca College.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Seneca Polytechnic.`,
     },
     prism: {
       theme: lightCodeTheme,
@@ -65,9 +62,9 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           routeBasePath: '/',
-          editUrl:
-            'https://github.com/patrick-crawford/WebProgrammingToolsAndFrameworks/tree/master',
-          remarkPlugins: [mdxMermaid],
+          editUrl: 'https://github.com/catherine-leung/OERTemplate/tree/main',
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [[rehypeKatex, { strict: false }]],
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -75,8 +72,17 @@ module.exports = {
       },
     ],
   ],
+  stylesheets: [
+    {
+      href: 'https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css',
+      type: 'text/css',
+      integrity: 'sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM',
+      crossorigin: 'anonymous',
+    },
+  ],
   clientModules: [require.resolve('./pwaCustomButton.js')],
   plugins: [
+    require.resolve('docusaurus-lunr-search'),
     [
       '@docusaurus/plugin-pwa',
       {

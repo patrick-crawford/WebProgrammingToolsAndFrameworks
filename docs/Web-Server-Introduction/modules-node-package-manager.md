@@ -11,13 +11,13 @@ description: Modules & Node Package Manager
 
 Recall way back in the Introduction, the concept of ["Built-In Modules / 'require()'"](/Introduction/hello-world#built-in-modules--require) was discussed:
 
-> "By using the global ['require'](https://nodejs.dev/en/api/v19/esm/#require) function, we have loaded a code "module" which contains code and logic that we can use in our own solutions."
+> "By using the global ['require'](https://nodejs.org/docs/latest/api/esm.html#require) function, we have loaded a code "module" which contains code and logic that we can use in our own solutions."
 
-We used this to gain access to some of the built in logic that ships with Node, including: ['fs'](https://nodejs.dev/en/api/v19/fs/), ['path'](https://nodejs.dev/en/api/v19/path/) and ['readline'](https://nodejs.dev/en/api/v19/readline/).
+We used this to gain access to some of the built in logic that ships with Node, including: ['fs'](https://nodejs.org/docs/latest/api/fs.html), ['path'](https://nodejs.org/docs/latest/api/path.html) and ['readline'](https://nodejs.org/docs/latest/api/readline.html).
 
 ### Writing Modules
 
-We can also create our own modules that work the same way, by making use of a global [“module”](https://nodejs.dev/en/api/v19/modules/#the-module-object) object – which isn’t truly “global” in the same sense as “console”, but instead global to each of your modules, which are located in separate .js files. For example, consider the two following files (modEx1.js: the main file that Node will execute, and message.js: the file containing the module):
+We can also create our own modules that work the same way, by making use of a global [“module”](https://nodejs.org/docs/latest/api/modules.html#the-module-object) object – which isn’t truly “global” in the same sense as “console”, but instead global to each of your modules, which are located in separate .js files. For example, consider the two following files (modEx1.js: the main file that Node will execute, and message.js: the file containing the module):
 
 **file ./modEx1.js**
 
@@ -59,7 +59,7 @@ Executing the code in modEx1.js (ie: **node modEx1.js**) should output:
 
 where … is the absolute location of the message.js file in your system, for example: **/Users/pat/Desktop/Seneca/modules/message.js**
 
-Notice how our “message” module uses the [exports](https://nodejs.dev/en/api/v19/modules/#moduleexports) property of the [“module”](https://nodejs.dev/en/api/v19/modules/#the-module-object) object to store functions and data that we want to be accessible in the object returned from the require(“./modules/message”); function call from modEx1.js. Generally speaking, if you want to add anything to the object returned by “require” for your module, it’s added to the module.exports object from within your module. In this case, we only added two functions (readMessage() and writeMessage()).
+Notice how our “message” module uses the [exports](https://nodejs.org/docs/latest/api/modules.html#moduleexports) property of the [“module”](https://nodejs.org/docs/latest/api/modules.html#the-module-object) object to store functions and data that we want to be accessible in the object returned from the require(“./modules/message”); function call from modEx1.js. Generally speaking, if you want to add anything to the object returned by “require” for your module, it’s added to the module.exports object from within your module. In this case, we only added two functions (readMessage() and writeMessage()).
 
 Using this methodology, we can safely create reusable code in an isolated way that can easily be added (plugged in) to another .js file.
 
@@ -89,54 +89,13 @@ All npm packages that you install locally for your application will be installed
 
 While there are over 60 "npm" [commands available](https://docs.npmjs.com/cli/commands), the ones that we will most commonly use in this course are as follows:
 
-<table>
-
-<tbody>
-
-<tr>
-
-<td><strong><a href="https://docs.npmjs.com/cli/v8/commands/npm-install" target="_blank">npm install [Module Name]</a></strong>  
-</td>
-
-<td>install is used to install a package from the npm repository so that you can use it with your application. ie: let express = require(“express”);</td>
-
-</tr>
-
-<tr>
-
-<td width="200"><strong><a href="https://docs.npmjs.com/cli/v8/commands/npm-uninstall" target="_blank">npm uninstall [module name]</a></strong></td>
-
-<td>uninstall does exactly what you would think, it uninstalls a module from the node_modules folder and your application will no longer be able to require() it.</td>
-
-</tr>
-
-<tr>
-
-<td><strong><a href="https://docs.npmjs.com/cli/v8/commands/npm-init" target="_blank">npm init</a></strong></td>
-
-<td>create a new package.json file for a fresh application. More on this part later.</td>
-
-</tr>
-
-<tr>
-
-<td><strong><a href="https://docs.npmjs.com/cli/v8/commands/npm-prune" target="_blank">npm prune</a></strong></td>
-
-<td>The prune command will look through your package.json file and remove any npm modules that are installed that are not required for your project. More on this part later.</td>
-
-</tr>
-
-<tr>
-
-<td><strong><a href="https://docs.npmjs.com/cli/v8/commands/npm-ls" target="_blank">npm list</a></strong></td>
-
-<td>Show a list of all packages installed for use by this application.</td>
-
-</tr>
-
-</tbody>
-
-</table>
+| Command | Description |
+|---------|-------------|
+| [npm install [Module Name]](https://docs.npmjs.com/cli/v8/commands/npm-install) | install is used to install a package from the npm repository so that you can use it with your application. ie: `let express = require("express");` |
+| [npm uninstall [module name]](https://docs.npmjs.com/cli/v8/commands/npm-uninstall) | uninstall does exactly what you would think, it uninstalls a module from the node_modules folder and your application will no longer be able to require() it. |
+| [npm init](https://docs.npmjs.com/cli/v8/commands/npm-init) | create a new package.json file for a fresh application. More on this part later. |
+| [npm prune](https://docs.npmjs.com/cli/v8/commands/npm-prune) | The prune command will look through your package.json file and remove any npm modules that are installed that are not required for your project. More on this part later. |
+| [npm list](https://docs.npmjs.com/cli/v8/commands/npm-ls) | Show a list of all packages installed for use by this application. |
 
 ### Globally installing packages
 
@@ -152,7 +111,7 @@ A third example is [bower](https://www.npmjs.com/package/bower). Bower is a pack
 npm install bower -g
 ```
 
-Globally installed packages do not get installed in your node_modules folder and instead are installed in a folder in your user directory. The folder uses for global packages varies for Windows, Mac, and Linux. See the documentation if you need to find globally installed packages on your machine.
+Globally installed packages do not get installed in your node_modules folder and instead are installed in a folder in your user directory. The folder used for global packages varies for Windows, Mac, and Linux. See the documentation if you need to find globally installed packages on your machine.
 
 ### package.json explained
 
@@ -206,9 +165,6 @@ About to write to /Users/pat/Desktop/Seneca/package.json:
   "author": "",
   "license": "ISC"
 }
-
-
-Is this OK? (yes)
 ```
 
 If you try running this command yourself, you will see that the process is _interactive_, ie: you will be prompted to enter everything from the "package name" to the "license". Any values that you see in brackets "()" are _default_ values and will be accepted if you press "Enter".

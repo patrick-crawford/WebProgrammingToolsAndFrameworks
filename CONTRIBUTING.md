@@ -35,7 +35,7 @@ This command starts a local development server and opens up a browser window. Mo
 If you want to make a change, please use the following GitHub workflow:
 
 1. fork this repo on GitHub
-1. clone your forked repo to your local machine, `git clone https://github.com/{your username}/WebProgrammingToolsAndFrameworks`
+1. clone your forked repo to your local machine, `git clone https://github.com/{your username}/{reponame}`
 1. create a new branch off of the `main` branch, `git checkout -b {new branch name} main`
 1. make your changes and save
 1. check it builds successfully, `yarn build`
@@ -64,11 +64,25 @@ This command generates static content in the `build/` directory and can be serve
 
 ### Deployment
 
-To build and deploy to GitHub Pages, use:
+To build and deploy to GitHub Pages:
 
-1. Follow step 1 - 5 in [Docusaurus's Triggering deployment with GitHub Actions](https://docusaurus.io/docs/deployment)
+1. Create a personal access token (PAT). Follow instructions found here: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 
-2. Deploy your site to Github Pages, run:
+   - Select repo scope for the token
+   - Copy the PAT
+
+2. Add the personal access token as a secret to your repo
+   - Click Settings Tab
+   - Select Secrets->Actions
+     ![](https://seneca-ictoer.github.io/OERResources/OERTemplate/secrets1.png)
+   - Create a new repository secret
+   - Name the secrete OER_DEPLOY
+   - Paste the PAT from previous step into the Value box
+     ![](https://seneca-ictoer.github.io/OERResources/OERTemplate/secrets2.png)
+
+#### A Shortcut To Update Your gh-pages:
+
+To deploy your updates to Github Pages, run:
 
 - For Bash:
 
@@ -108,23 +122,23 @@ Tool Recommendation: Firefox Browser (easier to make screenshots)
 
 4. Right click, select "Take Screenshot"
 
-![](static/img/take-screenshot.png)
+![](https://seneca-ictoer.github.io/OERResources/OERTemplate/take-screenshot.png)
 
 5. Select an area that encloses the whole table
 
-![](static/img/click-to-select-region.png)
+![](https://seneca-ictoer.github.io/OERResources/OERTemplate/click-to-select-region.png)
 
 6. Make any adjustments necessary when cropping (avoid having unnecessary space)
 
 7. Click Download
 
-![](static/img/download-selected-region.png)
+![](https://seneca-ictoer.github.io/OERResources/OERTemplate/download-selected-region.png)
 
-8. Save image to the `/static/img` folder in the WebProgrammingToolsAndFrameworks repo
+8. Save image to the `/static/img` folder in the repo
 
 9. This is how it should end up looking like:
 
-![](static/img/result-of-converted-table.png)
+![](https://seneca-ictoer.github.io/OERResources/OERTemplate/result-of-converted-table.png)
 
 10. Use markdown to place the image wherever you need:
 

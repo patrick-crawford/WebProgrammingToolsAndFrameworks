@@ -1,133 +1,78 @@
-# Contributing
+# README
 
-Thanks for your interest in helping us maintain our course notes! We are happy to consider contributions from faculty and students to help make these notes easier to use and improve their correctness.
+This template repository is set up for you to create and deploy an OER customized for Seneca College SCPA/ITAS/SDDS. To create a repo based on this template:
 
-## Requirements
+1. Click on the green "Use this template" button near top right corner of code tab
 
-These notes are built using [Docusaurus](https://docusaurus.io/), a modern static website generator. To use it, you'll need to have the following installed:
+2. You will see a page that will let you do some customization. Here are the settings you will want to pay attention to:
 
-- an [LTS version of node.js](https://nodejs.dev), which can be checked by running `node -v`. Currently that's node.js 14.x, but confirm with the official site.
+- **Owner** - by default, the owner is set to your account, thus the OER will be created under your github account. If you wish it to be part of the Seneca-ICTOER organization, change this from the drop down menu
+- **Repository Name** - If the OER is used by just one course, the course code can be a good name for this repository. If the OER is used by multiple courses, it is best to use a descriptive name that is applicable for all courses that will use the OER
+- **Public vs Private** - Your repository can be private but when notes are deployed, they will become public, the notes website will be public regardless of the privacy setting for this repository. Whether the repo is public or private can be changed later so if you are not sure you can start with repo being private and make the change once your repository is in a state where you wish to share it.
+- **Include all branches** checkbox. It is recommended that this remains unchecked as it is unlikely that the other branches of this template repository will be useful to you.
 
-- The [yarn](https://classic.yarnpkg.com/en/docs/install#mac-stable) package manager, version >= 1.5 (which can be checked by running `yarn --version`).
+This is a screenshot of the recommended set of settings for an initial repository:
 
-- [Visual Studio Code](https://code.visualstudio.com/). This is not strictly necessary, but we encourage it since we use various extensions to make working on the site easier.
+![](https://seneca-ictoer.github.io/OERResources/OERTemplate/templatesettings.png)
 
-## Installation
+Once you are happy with your settings, hit the "Create repository from template" button.
 
-To install the dependencies, use:
+When you first create your repository, the deployment script will run automatically. However, it will likely fail as you will need to generate a repository secret for deploying the OER first.
 
-```bash
-yarn install
-```
+To generate a repository secret for the deployment script:
 
-## Local Development
+1. Create a personal access token (PAT). Follow instructions found here: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
 
-To develop the site, use:
+   - Select repo scope for the token
+   - Copy the PAT
 
-```bash
-yarn start
-```
+2. Add the personal access token as a secret to your repo
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+   - Click Settings Tab
+   - Select Secrets->Actions
+     ![](https://seneca-ictoer.github.io/OERResources/OERTemplate/secrets1.png)
+   - Create a new repository secret
+   - Name the secret OER_DEPLOY
+   - Paste the PAT from previous step into the Value box
+     ![](https://seneca-ictoer.github.io/OERResources/OERTemplate/secrets2.png)
 
-## Workflows
+3. Go to the Actions Tab
+   - You will likely see a red x beside a run labelled Initial commit
+   - Click the Initial Commit link
+   - Hit the rerun jobs button
 
-If you want to make a change, please use the following GitHub workflow:
+## Files You Must Update:
 
-1. fork this repo on GitHub
-1. clone your forked repo to your local machine, `git clone https://github.senecacollege.ca/{your username}/WebProgrammingToolsAndFrameworks`
-1. create a new branch off of the `main` branch, `git checkout -b {new branch name} main`
-1. make your changes and save
-1. check it builds successfully, `yarn build`
-1. check to see which files have changed, `git status`
-1. stage these changed files in git, `git add file1 file2 ...`
-1. commit your changes, `git commit -m "Made the following changes..."`
-1. push your commits and branch to your fork, `git push origin {new branch name}`
-1. [create a Pull Request](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) on GitHub
-1. add a description about what you changed and anything the maintainers need to know
+- CNAME
+  - CNAME needs to be changed to match the deployment url of your books. If your book is part of the ICTOER org, then change:
+    `seneca-ictoer.github.io/oertemplate/` to `seneca-ictoer.github.io/yourRepoName/`
+- package.json
+  - Change the name field to match your repo name
+- docusaurus.config.js
+  - Multiple fields that refer to this template needs to change to refer to your repository
+- .github/workflows/deployment.yml
+  - the deployment script includes a pdf generator
+  - if you wish to generate a pdf version of the notes:
+    - modify lines 55 and 58 to match your repo url and pdf file names
+    - Note that that the pdf generator blurb with link to prince-pdf in intro.md is required as part of the licencing terms, so do not erase it.
+  - if you do not wish to use the pdf generator:
+    - erase lines 39 - the end of file.
+    - alter docs/intro.md and erase the two sections related to pdf and pdf generator
 
-## Standardize frontmatter
+## Files You Should Review
 
-Markdown documents can use the Markdown FrontMatter metadata fields, enclosed by a line --- on either side. We use `id`, `title`, `sidebar_position`, and `description`. However, we do NOT use `slug` for it.
+- LICENSE.md - Current license is a generic license. Please update to suit your needs
+- CONTRIBUTE.md - Rewrite to match your contribution workflow
+- README.md - These instructions should modify to suit your OER's intentions
 
-## Releases
+## Prettier
 
-### Build
+Remember to run prettier after you make changes to your files
 
-To create a production build, use:
+## Writing Your OER
 
-```bash
-yarn build
-```
-
-This command generates static content in the `build/` directory and can be served using any static contents hosting service, for example: GitHub Pages.
-
-### Deployment
-
-To build and deploy to GitHub Pages, use:
-
-1. Follow step 1 - 5 in [Docusaurus's Triggering deployment with GitHub Actions](https://docusaurus.io/docs/deployment)
-
-2. Deploy your site to Github Pages, run:
-
-- For Bash:
-
-```bash
-   GIT_USER=<GITHUB_USERNAME> yarn deploy
-```
-
-- For Windows
-
-```bash
-GIT_USER=<Your GitHub username> USE_SSH=true yarn deploy
-```
-
-- For Powershell
-
-```bash
-cmd /C 'set "GIT_USER=<GITHUB_USERNAME>" && yarn deploy'
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
-
-## Miscellanous
-
-### Tutorial for Converting Table-like Diagrams into Images
-
-To prevent table diagrams overflowing (and having the horizontal scrollbar on narrower viewports),
-we use a simple technique to convert them to images. This allows us to have responsive diagrams
-with less effort and minimizes HTML syntax on our pages.
-
-Tool Recommendation: Firefox Browser (easier to make screenshots)
-
-1. Run the app (`npm run start`)
-
-2. Go to the browser
-
-3. Go where the table you want to convert is
-
-4. Right click, select "Take Screenshot"
-
-![](static/img/take-screenshot.png)
-
-5. Select an area that encloses the whole table
-
-![](static/img/click-to-select-region.png)
-
-6. Make any adjustments necessary when cropping (avoid having unnecessary space)
-
-7. Click Download
-
-![](static/img/download-selected-region.png)
-
-8. Save image to the `/static/img` folder in the repo
-
-9. This is how it should end up looking like:
-
-![](static/img/result-of-converted-table.png)
-
-10. Use markdown to place the image wherever you need:
-
-```
-!["Alt test for accessibility"](/img/name-of-the-image.png)
-```
+- To add content to your OER, edit the files in the docs folder.
+- You can add folders and more md files if you wish
+- Save, add, commit and push your updated files back into github
+- Doing this will automatically start the deployment script which will build the Docusaurus based OER. The published URL should be what is stated in the CNAME file (although if you didn't change it there will be an error, the url can be found in the repos setting tab->pages)
+- **The published page is public, even if your repo is private**

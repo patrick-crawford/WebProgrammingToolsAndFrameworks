@@ -206,6 +206,17 @@ app.get('/cookie-test', (req, res) => {
 });
 ```
 
+### res.set()
+
+res.set() enables you to set the values of specific / custom HTTP headers sent with the request. For example:
+
+```js
+app.get('/custom', (req, res) => {
+  res.set('Custom-Header', 'MyValue');
+  res.send(`Custom-Header Sent`);
+});
+```
+
 ### res.end()
 
 res.end() is used you want to end a response immediately and send nothing back. For example, we may wish to send a ["204 - No Content"](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204) status code, which indicates that "a request has succeeded, but that the client doesn't need to navigate away from its current page". For example:
@@ -242,6 +253,16 @@ app.get('/plain-text-test', (req, res) => {
 ```
 
 > **NOTE:** When sending a JavaScript object back (as in the example above), the "send()" method will internally convert it to a JSON-formatted string
+
+### res.sendFile()
+
+As we have seen, this function is used when we wish to send a file (typically .html) back to the client. We use [path.join()](https://nodejs.org/api/path.html#pathjoinpaths) to safely join [\_\_dirname](https://nodejs.org/docs/latest/api/modules.html#__dirname) with the path of the file to be sent. This function also correctly sets the Content-Type response HTTP header based on the file extension. For example:
+
+```js
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '/views/home.html'));
+});
+```
 
 ### res.status()
 

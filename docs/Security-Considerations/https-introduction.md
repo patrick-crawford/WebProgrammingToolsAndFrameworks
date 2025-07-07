@@ -106,8 +106,7 @@ const https_options = {
   cert: fs.readFileSync(__dirname + '/server.crt'),
 };
 
-// listen on ports HTTP_PORT and HTTPS_PORT. The default port for http is 80, https is 443. We use 8080 and 4433 here
-// because sometimes port 80 is in use by other applications on the machine and using port 443 requires admin access on osx
+// listen on ports HTTP_PORT and HTTPS_PORT.
 
 http.createServer(app).listen(HTTP_PORT, () => {
   console.log(`http server listening on: ${HTTP_PORT}`);
@@ -125,7 +124,7 @@ You will notice that a few key changes have been made to our usual ["simple web 
 
 Finally, start the server and navigate to: [https://localhost:4433](https://localhost:4433)
 
-You'll notice, depending on your browser that you will get a security warning if everything is working ok. If you get this warning (with "Advanced" selected) everything is working as intended so far.
+Depending on your web browser, you may observe a security warning if the system is functioning correctly. If you get this warning (with "Advanced" selected) everything is working as intended so far.
 
 ### Warning in Firefox
 

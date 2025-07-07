@@ -33,7 +33,7 @@ Here, we see the text output to the console is out of order, ie: "Hello" followe
 
 ## Defining Functions with Callbacks
 
-Now that we know that a callback is really just a function passed to another function to perform an action once some asynchronous logic is complete, let's try writing our own code. Here, we will be using the [setTimeout()](https://nodejs.dev/en/api/v19/timers/#settimeoutcallback-delay-args) function to approximate an asynchronous action such as connecting to a database.
+Now that we know that a callback is really just a function passed to another function to perform an action once some asynchronous logic is complete, let's try writing our own code. Here, we will be using the [setTimeout()](https://nodejs.org/docs/latest/api/timers.html#settimeoutcallback-delay-args) function to approximate an asynchronous action such as connecting to a database.
 
 For our first example, let's say that we have a function called "connectToDatabase" that establishes a database connection after a random amount of time (between 1 and 2000 milliseconds). We also have a function called "queryData" that also takes a random amount of time to complete (in this case, it is between 1 and 1000 milliseconds).
 

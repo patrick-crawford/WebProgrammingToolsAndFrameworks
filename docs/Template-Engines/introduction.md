@@ -98,7 +98,7 @@ While this will work to send a valid HTML5 page containing our data back to the 
 
 ## Template Engines
 
-Fortunately, we can leverage ["template engines" with express](https://expressjs.com/en/guide/using-template-engines.html) to solve this exact problem. From the express.js documentation:
+Fortunately, we can leverage ["template engines" with Express](https://expressjs.com/en/guide/using-template-engines.html) to solve this exact problem. From the express.js documentation:
 
 > A template engine enables you to use static template files in your application. At runtime, the template engine replaces variables in a template file with actual values, and transforms the template into an HTML file sent to the client. This approach makes it easier to design an HTML page.
 
@@ -107,7 +107,6 @@ This sounds like exactly what we need and there are a number of popular options 
 - ["Pug"](https://pugjs.org/api/getting-started.html)
 - ["Express Handlebars"](https://www.npmjs.com/package/express-handlebars)
 - ["EJS"](https://ejs.co)
-- [and many more...](https://expressjs.com/en/resources/template-engines.html)
 
 In the next section, we will take a look at "EJS":
 

@@ -33,7 +33,7 @@ Next, we need to update our **server.js** file to use the new modules so that we
 const Sequelize = require('sequelize');
 
 // set up sequelize to point to our postgres database
-let sequelize = new Sequelize('database', 'user', 'password', {
+const sequelize = new Sequelize('database', 'user', 'password', {
   host: 'host',
   dialect: 'postgres',
   port: 5432,
@@ -52,9 +52,7 @@ sequelize
   });
 ```
 
-Where **database** is your randomly generated “User & Default database” value, **user** is also your randomly generated “User & Default database” value, **password** is your password and lastly, **host** will be your host url (ie: "jelani.db.elephantsql.com").
-
-> **NOTE**: All of this information is available online via the ElephantSQL dashboard by clicking on your chosen instance name
+Where **database** is your "PGDATABASE" value, **user** is your "PGUSER" value, **password** is your "PGPASSWORD" and lastly, **host** will be your "PGHOST" url (ie: "ab-cd-12345.us-east-2.aws.neon.tech").
 
 Once you have updated your app to use the **Sequelize** module, try running it using our usual "**node server.js**" command. If everything was entered correctly, you should see the following message in the console:
 
@@ -84,7 +82,6 @@ const sequelize = new Sequelize('database', 'user', 'password', {
   dialectOptions: {
     ssl: { rejectUnauthorized: false },
   },
-  query: { raw: true },
 });
 
 // Define a "Project" model
@@ -229,7 +226,7 @@ const BlogEntry = sequelize.define('BlogEntry', {
 
 In a relational database system, tables (models) can be **related** using foreign key relationships / [associations](https://sequelize.org/docs/v6/core-concepts/assocs/). For example, say we have a table of **Users** and a table of **Tasks**, where each User could have **1 or more** Tasks. To enforce this relationship, we would add an additional column on the Tasks table as a foreign-key to the Users table, since 1 or more Tasks could belong to a specific user. For example, "Task 1", "Task 2" and "Task 3" could all belong to "User 1", whereas "Task 4" and "Task 5" may belong to "User 2".
 
-Using Sequelize models, we can easily define this relationship using the hasMany() method on our User model (since "User has many Task(s)"), for example:
+Using Sequelize models, we can easily define this relationship using the hasMany() / belongsTo() methods (since "User has many Task(s)"), for example:
 
 ```javascript
 // Define our "User" and "Task" models
@@ -244,10 +241,10 @@ const Task = sequelize.define('Task', {
   description: Sequelize.TEXT, // main text for the task
 });
 
-// Associate Tasks with user & automatically create a foreign key
+// Associate Task with User & automatically create a foreign key
 // relationship on "Task" via an automatically generated "UserId" field
 
-User.hasMany(Task);
+Task.belongsTo(User);
 ```
 
 If we wish to create a User and then assign him some tasks, we can "create" the tasks immediately after the user is created, ie:
@@ -284,10 +281,9 @@ sequelize.sync().then(() => {
 
 Next, try running this code and take a look at your database in pgAdmin. You should see that two new tables, **"Users"** and **"Tasks"** have been created, with **"Jason Bourne"** inside the "User" table and **"Task 1"** and **"Task 2"** inside the "Task" table. The two new tasks will both have a **UserId** matching "Jason Bourne"'s id. We have achieved the one-to-many relationship between this user and his tasks.
 
-> **NOTE:** Sequelize also supports other relationships, such as:
+> **NOTE:** Sequelize also supports other types of relationships using:
 >
-> - belongsTo()
 > - hasOne()
 > - belongsToMany()
 >
-> For more information, refer to ["Associations"](https://sequelize.org/docs/v6/core-concepts/assocs/) in the official documentaiton.
+> For more information, refer to ["Associations"](https://sequelize.org/docs/v6/core-concepts/assocs/) in the official documentation.
