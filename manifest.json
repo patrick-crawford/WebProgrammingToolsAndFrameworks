@@ -4,9 +4,9 @@
 	"display": "standalone",
 	"scope": "./",
 	"start_url": "./",
-	"name": "Web Programming Tools and Frameworks",
-	"short_name": "Intro. to C",
-	"description": "Web Programming Tools and Frameworks",
+	"name": "OER Course Title",
+	"short_name": "OER Course Short Name",
+	"description": "OER Course Description",
 	"icons": [
 		{
 			"src": "img/pwa/icon-192x192.png",
