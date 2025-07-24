@@ -7,7 +7,7 @@ description: Tailwind CSS & daisyUI
 
 # Tailwind CSS & daisyUI
 
-[Tailwind CSS](https://v3.tailwindcss.com/) is another popular CSS framework that we may choose to use with our projects. It is defined as a "utility-first CSS framework packed with classes like **flex**, **pt-4**, **text-center** and **rotate-90** that can be composed to build any design, directly in your markup."
+[Tailwind CSS](https://tailwindcss.com//) is another popular CSS framework that we may choose to use with our projects. It is defined as a "utility-first CSS framework packed with classes like **flex**, **pt-4**, **text-center** and **rotate-90** that can be composed to build any design, directly in your markup."
 
 > "Utility classes help you work within the constraints of a system instead of littering your stylesheets with arbitrary values. They make it easy to be consistent with color choices, spacing, typography, shadows, and everything else that makes up a well-engineered design system."
 
@@ -19,11 +19,11 @@ Essentially, Tailwind CSS provides an **extensive** set of CSS classes that can 
 </div>
 ```
 
-Creates a block that is 150px [wide](https://v3.tailwindcss.com/docs/width#fixed-widths) by 80px [tall](https://v3.tailwindcss.com/docs/height) with a large [outer shadow](https://v3.tailwindcss.com/docs/box-shadow#adding-an-outer-shadow), a white [background color](https://v3.tailwindcss.com/docs/background-color) and large [rounded corners](https://v3.tailwindcss.com/docs/border-radius#rounded-corners). It also uses flexbox ([flex](https://v3.tailwindcss.com/docs/flex)) to center the items [horizontally](https://v3.tailwindcss.com/docs/justify-content#center) and [vertically](https://v3.tailwindcss.com/docs/align-items#center). The inner paragraph is also aligned in the [center](https://v3.tailwindcss.com/docs/text-align#setting-the-text-alignment).
+Creates a block that is 150px [wide](https://tailwindcss.com//docs/width#fixed-widths) by 80px [tall](https://tailwindcss.com//docs/height) with a large [outer shadow](https://tailwindcss.com//docs/box-shadow#adding-an-outer-shadow), a white [background color](https://tailwindcss.com//docs/background-color) and large [rounded corners](https://tailwindcss.com//docs/border-radius#rounded-corners). It also uses flexbox ([flex](https://tailwindcss.com//docs/flex)) to center the items [horizontally](https://tailwindcss.com//docs/justify-content#center) and [vertically](https://tailwindcss.com//docs/align-items#center). The inner paragraph is also aligned in the [center](https://tailwindcss.com//docs/text-align#setting-the-text-alignment).
 
 This is certainly a different approach to the previous CSS frameworks that we have seen. It adds a lot of extra markup to your "view" (".html") files and can be difficult to maintain and read. However, it does add a lot of flexibility and consistency to the user interface design without writing any CSS code yourself.
 
-> **NOTE:** To reduce repeating ourselves when using Tailwind, We can use the ["@apply" directive](https://v3.tailwindcss.com/docs/reusing-styles#extracting-classes-with-apply) to extract repeated utility patterns to custom CSS classes
+> **NOTE:** To reduce repeating ourselves when using Tailwind, We can use the ["@apply" directive](https://tailwindcss.com//docs/reusing-styles#extracting-classes-with-apply) to extract repeated utility patterns to custom CSS classes
 >
 > ```css
 > .small-card-container {
@@ -31,7 +31,7 @@ This is certainly a different approach to the previous CSS frameworks that we ha
 > }
 > ```
 
-If we are able to use this alongside some kind of "component library" that also adds expertly designed, pre-built user interface elements (such as Bootstrap's "btn"), it would be much quicker (and cleaner) for us to adopt in our projects. Fortunately, Tailwind has the notion of ["plugins"](https://v3.tailwindcss.com/docs/plugins) which allow us to "register new styles for Tailwind" (this is where daisyUI comes in).
+If we are able to use this alongside some kind of "component library" that also adds expertly designed, pre-built user interface elements (such as Bootstrap's "btn"), it would be much quicker (and cleaner) for us to adopt in our projects. Fortunately, Tailwind has the notion of ["plugins"](https://tailwindcss.com//docs/plugins) which allow us to "register new styles for Tailwind" (this is where daisyUI comes in).
 
 ## Setting up Tailwind CSS
 
@@ -40,36 +40,14 @@ To begin using Tailwind, we will once again create a [simple web server using Ex
 Once this is complete, run the following command to install the "tailwindcss" command as a "devDependency":
 
 ```bash
-npm install -D tailwindcss@3
+npm install -D tailwindcss@latest @tailwindcss/cli@latest postcss@latest autoprefixer@latest
+
 ```
 
-Next, we must "initialize" Tailwind and create a "tailwind.config.js" file by using the command:
-
-```bash
-npx tailwindcss init
-```
-
-> **NOTE:** The ["npx" command](https://docs.npmjs.com/cli/commands/npx) allows us to run a command from a local or remote npm package.
-
-With Tailwind CSS correctly installed, we must create a primary css file as our starting point to include the "layers" of Tailwind CSS. To do this, crate a "tailwind.css" file within "/public/css" (ie: `/public/css/tailwind.css`) with the following code:
+With Tailwind CSS correctly installed, we must create a primary css file as our starting point to include Tailwind CSS. To do this, crate a "tailwind.css" file within "/public/css" (ie: `/public/css/tailwind.css`) with the following code:
 
 ```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-```
-
-### Configure Tailwind CSS
-
-The next step is to let Tailwind know where to find our "view" (".html") files. The reason for this is because Tailwind's "build" step (configured below) scans our "view" files and creates a custom CSS file containing _only_ the required CSS from Tailwind. This can be accomplished by adding `./views/**/*.html` to the "content" array within the "tailwind.config.js" file:
-
-**File: tailwind.config.js**
-
-```js
-module.exports = {
-  content: [`./views/**/*.html`], // all .html files
-  // ...
-};
+@import "tailwindcss";
 ```
 
 ### "Build" main.css
@@ -80,7 +58,7 @@ For the next step (as we did with "SASS"), we must add a "build" command to the 
 
 ```json
 "scripts": {
-  "tw:build": "tailwindcss build -i ./public/css/tailwind.css -o ./public/css/main.css --watch"
+  "tw:build": "npx @tailwindcss/cli -i ./public/css/tailwind.css -o ./public/css/main.css --watch"
 }
 ```
 
@@ -112,7 +90,7 @@ npm run tw:build
 
 ## Introducing daisyUI
 
-As mentioned above, [daisyUI](https://v4.daisyui.com/) is a "plugin" for Tailwind CSS. It adds UI components while still providing the full flexibility of Tailwind's utility classes:
+As mentioned above, [daisyUI](https://daisyui.com/) is a "plugin" for Tailwind CSS. It adds UI components while still providing the full flexibility of Tailwind's utility classes:
 
 > "[daisyUI is] the most popular component library for Tailwind CSS"
 >
@@ -127,25 +105,23 @@ This sounds like the perfect compromise - we get beautifully styled UI component
 To get started using daisyUI, the first thing that we need to do is "install" the required packages using NPM:
 
 ```bash
-npm i @tailwindcss/typography daisyui@4
+npm install -D @tailwindcss/typography@latest daisyui@latest
 ```
 
-Once this is complete, the next step is to register them as "plugins" in the "tailwind.config.js" file:
+Once this is complete, the next step is to register them as "plugins" in the "tailwind.css" file:
 
-**File: tailwind.config.js**
+**File: /public/css/tailwind.css**
 
-```js
-module.exports = {
-  // ...
-  plugins: [require('@tailwindcss/typography'), require('daisyui')],
-};
+```css
+@plugin "@tailwindcss/typography";
+@plugin "daisyui";
 ```
 
-> **NOTE:** The "@tailwindcss/typography" plugin is [recommended by daisyUI](https://v4.daisyui.com/docs/layout-and-typography/#-1) and is **required** if we wish to see text such as headings and paragraphs **correctly styled**. To read more on this, including using the **"prose"** class ("that you can slap on any block of vanilla HTML content and turn it into a beautiful, well-formatted document"), see the following link to the documentation:
+> **NOTE:** The "@tailwindcss/typography" plugin is [recommended by daisyUI](https://daisyui.com/docs/layout-and-typography/#-1) and is **required** if we wish to see text such as headings and paragraphs **correctly styled**. To read more on this, including using the **"prose"** class ("that you can slap on any block of vanilla HTML content and turn it into a beautiful, well-formatted document"), see the following link to the documentation:
 >
-> [https://v4.daisyui.com/docs/layout-and-typography](https://v4.daisyui.com/docs/layout-and-typography)
+> [https://daisyui.com/docs/layout-and-typography](https://daisyui.com/docs/layout-and-typography)
 
-This should be all that is required to register daisyUI with Tailwind CSS. To verify that it did indeed work, try adding a component from daisyUI to one of your .html files using main.css. The simplest example is a [button](https://v4.daisyui.com/components/button) - we'll use the "primary" variation:
+This should be all that is required to register daisyUI with Tailwind CSS. To verify that it did indeed work, try adding a component from daisyUI to one of your .html files using main.css. The simplest example is a [button](https://daisyui.com/components/button) - we'll use the "primary" variation:
 
 ```html
 <button class="btn btn-primary">Button</button>
@@ -165,32 +141,35 @@ Before we discuss some of the important design patterns and components available
 
 > "daisyUI comes with a number of themes, which you can use with no extra effort. Each theme defines a set of colors which will be used on all daisyUI elements"
 
-At it's core the various ["themes"](https://v4.daisyui.com/docs/themes) that daisyUI provides are alternate color schemes and variations on the roundness of corners, thickness and length of shadows, etc. for the provided components. Recall from our "btn-primary" example above: a purple button was rendered on the screen (since this is the default "primary" color). If we were to use one of the built in themes such as "cupcake", the "primary" color would be a dark cyan and the button would have more rounded edges.
+At it's core the various ["themes"](https://daisyui.com/docs/themes) that daisyUI provides are alternate color schemes and variations on the roundness of corners, thickness and length of shadows, etc. for the provided components. Recall from our "btn-primary" example above: a purple button was rendered on the screen (since this is the default "primary" color). If we were to use one of the built in themes such as "cupcake", the "primary" color would be a dark cyan and the button would have more rounded edges.
 
-To change the theme used by daisyUI, all that is required is that a named theme from the [list of themes](https://v4.daisyui.com/docs/themes/) be listed in a "themes" property for "daisyui" in tailwind.config.js. For example, if we wish to use the aforementioned "cupcake" theme, we could update our tailwind.config.js files as follows:
+To change the theme used by daisyUI, all that is required is that a named theme from the [list of themes](https://daisyui.com/docs/themes/) be listed in a "themes" property for "daisyui" in the tailwind.css file. For example, if we wish to use the aforementioned "cupcake" theme, we could update our tailwind.css file as follows:
 
-**File: tailwind.config.js**
+**File: /public/css/tailwind.css**
 
-```js
-module.exports = {
-  // ...
-  daisyui: {
-    themes: ['cupcake'],
-  },
-};
+```css
+@plugin "daisyui" {
+  themes: cupcake;
+}
+```
+
+Additionally, we must update any &lt;html&gt; elements for pages using the theme, ie: your "view" (".html") files to use the "data-theme" property:
+
+```html
+<html data-theme="cupcake">
 ```
 
 ### Components
 
-At the time of writing, DaisyUI ships with a total of 52 Components. The library is extremely extensive and the [documentation](https://v4.daisyui.com/docs) is both very well written and _searchable_. If you plan on working with Tailwind CSS, daisyUI is an excellent addition that can greatly speed up your development time and make your apps look professional without having to do any additional design work.
+At the time of writing, DaisyUI ships with a total of 52 Components. The library is extremely extensive and the [documentation](https://daisyui.com/docs) is both very well written and _searchable_. If you plan on working with Tailwind CSS, daisyUI is an excellent addition that can greatly speed up your development time and make your apps look professional without having to do any additional design work.
 
-The following is a list of a few _key_ components that are used in most web applications, along with the (.html) code to include them in your views. For additional components and patterns, refer to the [official documentation](https://v4.daisyui.com/docs).
+The following is a list of a few _key_ components that are used in most web applications, along with the (.html) code to include them in your views. For additional components and patterns, refer to the [official documentation](https://daisyui.com/docs).
 
 > **NOTE:** Do not forget to "build" your Tailwind CSS before testing newly added components / HTML to see the results.
 
 #### Navbar
 
-The first component that we will discuss is the ["Navbar"](https://v4.daisyui.com/components/navbar). The navbar (short for "navigation bar") provides a consistent, user friendly and _widely recognized_ way to navigate through a web site / app. To begin using daisyUI's implementation, add the following HTML:
+The first component that we will discuss is the ["Navbar"](https://daisyui.com/components/navbar). The navbar (short for "navigation bar") provides a consistent, user friendly and _widely recognized_ way to navigate through a web site / app. To begin using daisyUI's implementation, add the following HTML:
 
 ```html
 <div class="navbar bg-base-100">
@@ -215,7 +194,7 @@ The first component that we will discuss is the ["Navbar"](https://v4.daisyui.co
 </div>
 ```
 
-This is a very simple navigation bar using boilerplate code from the documentation. It shows a "daisyUI" logo / link on the left hand side and two navigation links (including a "dropdown" menu). To add new items, we simply modify the unordered list. Features such as ["Search Input"](https://v4.daisyui.com/components/navbar/#navbar-with-search-input-and-dropdown) and ["Icons with indicators"](https://v4.daisyui.com/components/navbar/#navbar-with-icon-indicator-and-dropdown) are also supported.
+This is a very simple navigation bar using boilerplate code from the documentation. It shows a "daisyUI" logo / link on the left hand side and two navigation links (including a "dropdown" menu). To add new items, we simply modify the unordered list. Features such as ["Search Input"](https://daisyui.com/components/navbar/#navbar-with-search-input-and-dropdown) and ["Icons with indicators"](https://daisyui.com/components/navbar/#navbar-with-icon-indicator-and-dropdown) are also supported.
 
 The only issue here is that the menu is not "responsive" (ie: it does not collapse to accommodate smaller devices). To remedy this, we should make the navbar _only visible_ if the viewport is a certain width or _larger_. If the viewport is smaller than the breakpoint (minimum width), then an alternate navbar should be shown, featuring an icon indicating that the user can click to view the menu items.
 
@@ -263,9 +242,9 @@ This should provide a navigation bar that appears normal if the viewport is larg
 
 #### Grid System
 
-Another important feature of any design system is it's "grid" implementation. A grid system will let us place elements on the page that are spaced consistently and are resized / rearranged to accommodate multiple device sizes (ie: "responsive"). Interestingly, daisyUI does not provide it's own grid system, instead relying on Tailwind's excellent [implementation](https://v3.tailwindcss.com/docs/grid-template-columns).
+Another important feature of any design system is it's "grid" implementation. A grid system will let us place elements on the page that are spaced consistently and are resized / rearranged to accommodate multiple device sizes (ie: "responsive"). Interestingly, daisyUI does not provide it's own grid system, instead relying on Tailwind's excellent [implementation](https://tailwindcss.com//docs/grid-template-columns).
 
-To get started using the grid system, we will crate a responsive [grid](https://v3.tailwindcss.com/docs/grid-template-columns#specifying-the-columns-in-a-grid) that consists of 4 columns for the large size, 2 columns for the medium size, and 1 column for the small size.
+To get started using the grid system, we will crate a responsive [grid](https://tailwindcss.com//docs/grid-template-columns#specifying-the-columns-in-a-grid) that consists of 4 columns for the large size, 2 columns for the medium size, and 1 column for the small size.
 
 ```html
 <div class="container mx-auto">
@@ -279,7 +258,7 @@ To get started using the grid system, we will crate a responsive [grid](https://
 </div>
 ```
 
-You will notice that the grid is also placed within a responsive ["container"](https://v3.tailwindcss.com/docs/container), which ensures that the grid is given a correct width depending on the viewport size.
+You will notice that the grid is also placed within a responsive ["container"](https://tailwindcss.com//docs/container), which ensures that the grid is given a correct width depending on the viewport size.
 
 > **NOTE:** You can specify more that one grid in a container. For example, if you wished to have a large, single column grid above the other items (serving as a title block, etc), you could update the code to use:
 >
@@ -306,7 +285,7 @@ A "Card" is basically a user interface element that serves as a "content contain
 >
 > [https://www.justinmind.com/ui-design/cards](https://www.justinmind.com/ui-design/cards)
 
-Fortunately, daisyUI has a [card component](https://v4.daisyui.com/components/card) that is ready to be incorporated into our designs:
+Fortunately, daisyUI has a [card component](https://daisyui.com/components/card) that is ready to be incorporated into our designs:
 
 ```html
 <div class="card w-96 bg-base-100 shadow-xl">
@@ -325,11 +304,11 @@ Fortunately, daisyUI has a [card component](https://v4.daisyui.com/components/ca
 
 > **NOTE:** If you wish to position the card as a "grid" item, the "w-96" class can be removed and the entire "card" can be placed within the grid
 
-For other options, such as ["responsive"](https://v4.daisyui.com/components/card/#responsive-card-vertical-on-small-screen-horizontal-on-large-screen), ["glass"](https://v4.daisyui.com/components/card/#card-glass), ["custom colors"](https://v4.daisyui.com/components/card/#card-with-custom-color), etc. please refer to the [documentation](https://www.justinmind.com/ui-design/cards).
+For other options, such as ["responsive"](https://daisyui.com/components/card/#responsive-card-vertical-on-small-screen-horizontal-on-large-screen), ["glass"](https://daisyui.com/components/card/#card-glass), ["custom colors"](https://daisyui.com/components/card/#card-with-custom-color), etc. please refer to the [documentation](https://www.justinmind.com/ui-design/cards).
 
 #### Tables
 
-If your content is more "tabular" (ie: displayed using tables / columns), such as sports scores, results from an experiment, sales reports, etc. then it's best placed with a [styled "table" element](https://v4.daisyui.com/components/table/).
+If your content is more "tabular" (ie: displayed using tables / columns), such as sports scores, results from an experiment, sales reports, etc. then it's best placed with a [styled "table" element](https://daisyui.com/components/table/).
 
 To achieve this using daisyUI, the documentation recommends placing your table within a `<div>` element with class `overflow-x-auto`. Additionally, the `<table>` element itself should have the class `table`:
 
@@ -341,13 +320,13 @@ To achieve this using daisyUI, the documentation recommends placing your table w
 </div>
 ```
 
-For other options, such as ["striped rows"](https://v4.daisyui.com/components/table/#zebra), ["visual elements"](https://v4.daisyui.com/components/table/#table-with-visual-elements), ["compact tables"](https://v4.daisyui.com/components/table/#table-xs), etc. please refer to the [documentation](https://v4.daisyui.com/components/table).
+For other options, such as ["striped rows"](https://daisyui.com/components/table/#zebra), ["visual elements"](https://daisyui.com/components/table/#table-with-visual-elements), ["compact tables"](https://daisyui.com/components/table/#table-xs), etc. please refer to the [documentation](https://daisyui.com/components/table).
 
 #### Forms
 
 Finally, we should discuss how form elements are styled using Tailwind CSS / daisyUI. Generally, form controls are styled using a class that matches their type - for example, to style an `<input>` element the class "input" would be used. Similarly, to style a `<select>` element the "select" class would be used. This pattern extends to whether or not we wish to style the control with a border (ie, using the styles "input-bordered" and "select-bordered").
 
-The below HTML snippet captures the major form types: ["input"](https://v4.daisyui.com/components/input/), ["textarea"](https://v4.daisyui.com/components/textarea/), ["select"](https://v4.daisyui.com/components/select/), ["radio"](https://v4.daisyui.com/components/radio/) and ["checkbox"](https://v4.daisyui.com/components/checkbox/) within a responsive grid that is 3 columns wide.
+The below HTML snippet captures the major form types: ["input"](https://daisyui.com/components/input/), ["textarea"](https://daisyui.com/components/textarea/), ["select"](https://daisyui.com/components/select/), ["radio"](https://daisyui.com/components/radio/) and ["checkbox"](https://daisyui.com/components/checkbox/) within a responsive grid that is 3 columns wide.
 
 ```html
 <form>
