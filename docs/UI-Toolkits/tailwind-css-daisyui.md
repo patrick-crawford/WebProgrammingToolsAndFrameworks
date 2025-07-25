@@ -23,7 +23,7 @@ Creates a block that is 150px [wide](https://tailwindcss.com//docs/width#fixed-w
 
 This is certainly a different approach to the previous CSS frameworks that we have seen. It adds a lot of extra markup to your "view" (".html") files and can be difficult to maintain and read. However, it does add a lot of flexibility and consistency to the user interface design without writing any CSS code yourself.
 
-> **NOTE:** To reduce repeating ourselves when using Tailwind, We can use the ["@apply" directive](https://tailwindcss.com//docs/reusing-styles#extracting-classes-with-apply) to extract repeated utility patterns to custom CSS classes
+> **NOTE:** To reduce repeating ourselves when using Tailwind, We can use the ["@apply" directive](https://tailwindcss.com/docs/functions-and-directives#apply-directive) to extract repeated utility patterns to custom CSS classes
 >
 > ```css
 > .small-card-container {
@@ -143,7 +143,7 @@ Before we discuss some of the important design patterns and components available
 
 At it's core the various ["themes"](https://daisyui.com/docs/themes) that daisyUI provides are alternate color schemes and variations on the roundness of corners, thickness and length of shadows, etc. for the provided components. Recall from our "btn-primary" example above: a purple button was rendered on the screen (since this is the default "primary" color). If we were to use one of the built in themes such as "cupcake", the "primary" color would be a dark cyan and the button would have more rounded edges.
 
-To change the theme used by daisyUI, all that is required is that a named theme from the [list of themes](https://daisyui.com/docs/themes/) be listed in a "themes" property for "daisyui" in the tailwind.css file. For example, if we wish to use the aforementioned "cupcake" theme, we could update our tailwind.css file as follows:
+To change the theme used by daisyUI, all that is required is that a named theme from the [list of themes](https://daisyui.com/docs/themes/#list-of-themes) be listed in a "themes" property for "daisyui" in the tailwind.css file. For example, if we wish to use the aforementioned "cupcake" theme, we could update our tailwind.css file as follows:
 
 **File: /public/css/tailwind.css**
 
@@ -161,7 +161,7 @@ Additionally, we must update any &lt;html&gt; elements for pages using the theme
 
 ### Components
 
-At the time of writing, DaisyUI ships with a total of 52 Components. The library is extremely extensive and the [documentation](https://daisyui.com/docs) is both very well written and _searchable_. If you plan on working with Tailwind CSS, daisyUI is an excellent addition that can greatly speed up your development time and make your apps look professional without having to do any additional design work.
+At the time of writing, DaisyUI ships with a total of 52 Components. The library is extremely extensive and the [documentation](https://daisyui.com/docs/intro/) is both very well written and _searchable_. If you plan on working with Tailwind CSS, daisyUI is an excellent addition that can greatly speed up your development time and make your apps look professional without having to do any additional design work.
 
 The following is a list of a few _key_ components that are used in most web applications, along with the (.html) code to include them in your views. For additional components and patterns, refer to the [official documentation](https://daisyui.com/docs).
 
@@ -244,7 +244,7 @@ This should provide a navigation bar that appears normal if the viewport is larg
 
 Another important feature of any design system is it's "grid" implementation. A grid system will let us place elements on the page that are spaced consistently and are resized / rearranged to accommodate multiple device sizes (ie: "responsive"). Interestingly, daisyUI does not provide it's own grid system, instead relying on Tailwind's excellent [implementation](https://tailwindcss.com//docs/grid-template-columns).
 
-To get started using the grid system, we will crate a responsive [grid](https://tailwindcss.com//docs/grid-template-columns#specifying-the-columns-in-a-grid) that consists of 4 columns for the large size, 2 columns for the medium size, and 1 column for the small size.
+To get started using the grid system, we will crate a responsive [grid](https://tailwindcss.com/docs/grid-template-columns#specifying-the-grid-columns) that consists of 4 columns for the large size, 2 columns for the medium size, and 1 column for the small size.
 
 ```html
 <div class="container mx-auto">
@@ -258,7 +258,7 @@ To get started using the grid system, we will crate a responsive [grid](https://
 </div>
 ```
 
-You will notice that the grid is also placed within a responsive ["container"](https://tailwindcss.com//docs/container), which ensures that the grid is given a correct width depending on the viewport size.
+You will notice that the grid is also placed within a responsive ["container"](https://tailwindcss.com/docs/max-width#using-breakpoints-container), which ensures that the grid is given a correct width depending on the viewport size.
 
 > **NOTE:** You can specify more that one grid in a container. For example, if you wished to have a large, single column grid above the other items (serving as a title block, etc), you could update the code to use:
 >
@@ -304,7 +304,7 @@ Fortunately, daisyUI has a [card component](https://daisyui.com/components/card)
 
 > **NOTE:** If you wish to position the card as a "grid" item, the "w-96" class can be removed and the entire "card" can be placed within the grid
 
-For other options, such as ["responsive"](https://daisyui.com/components/card/#responsive-card-vertical-on-small-screen-horizontal-on-large-screen), ["glass"](https://daisyui.com/components/card/#card-glass), ["custom colors"](https://daisyui.com/components/card/#card-with-custom-color), etc. please refer to the [documentation](https://www.justinmind.com/ui-design/cards).
+For other options, such as ["responsive"](https://daisyui.com/components/card/#responsive-card-vertical-on-small-screen-horizontal-on-large-screen), ["custom colors"](https://daisyui.com/components/card/#card-with-custom-color), etc. please refer to the [documentation](https://daisyui.com/components/card/).
 
 #### Tables
 
