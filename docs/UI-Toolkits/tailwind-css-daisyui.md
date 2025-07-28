@@ -40,7 +40,7 @@ To begin using Tailwind, we will once again create a [simple web server using Ex
 Once this is complete, run the following command to install the "tailwindcss" command as a "devDependency":
 
 ```bash
-npm install -D tailwindcss@latest @tailwindcss/cli@latest postcss@latest autoprefixer@latest
+npm install -D tailwindcss@latest @tailwindcss/cli@latest
 
 ```
 
