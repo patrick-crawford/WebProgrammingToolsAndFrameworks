@@ -305,7 +305,7 @@ Notice how the documentation mentions the "surrounding async function". This is 
 SyntaxError: await is only valid in async functions and the top level bodies of modules
 ```
 
-You will also notice how the documentation mentions that if the promise is rejected, the await expression "throws the rejected value". This is why we must place our "await" logic within a "try" / "catch" block. If we fail to do so and one of the promise-based functions is actually rejected, we will get the following error (**NOTE:** this error also occurs if a ".catch()" function is missing when using then() & catch()):
+You will also notice how the documentation mentions that if the promise is rejected, the await expression "throws the rejected value". This is why we must place our "await" logic within a "try" / "catch" block. If we fail to do so and one of the promise-based functions is actually rejected, we will get the following error (this error also occurs if a ".catch()" function is missing when using then() & catch()):
 
 ```
 UnhandledPromiseRejection: This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch().

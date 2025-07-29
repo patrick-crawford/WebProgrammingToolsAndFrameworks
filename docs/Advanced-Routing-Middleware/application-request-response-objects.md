@@ -175,7 +175,9 @@ app.get('/products', (req, res) => {
 
 When designing route handlers that can accept query string values, we do not include them in the "route" (ie: "/products"). Additionally, since the route will match _without_ the "onSale" query sting value, it is important to return a value if it's missing (ie: "all Products" or an error if the query parameter _must_ be present)
 
-> **NOTE:** Multiple query parameters may also be used, and are separated by an ampersand, "&": `https://example.com/path/to/page?name=ferret&color=purple`
+:::info
+Multiple query parameters may also be used, and are separated by an ampersand, "&": `https://example.com/path/to/page?name=ferret&color=purple`
+:::
 
 ### req.get()
 
@@ -251,8 +253,9 @@ app.get('/plain-text-test', (req, res) => {
   res.send('Hello World!'); // Content-Type: text/html; charset=utf-8
 });
 ```
-
-> **NOTE:** When sending a JavaScript object back (as in the example above), the "send()" method will internally convert it to a JSON-formatted string
+:::info
+When sending a JavaScript object back (as in the example above), the "send()" method will internally convert it to a JSON-formatted string
+:::
 
 ### res.sendFile()
 

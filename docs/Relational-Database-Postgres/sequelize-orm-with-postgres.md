@@ -185,7 +185,9 @@ sequelize.sync().then(() => {
 
 The [sequelize.sync()](https://sequelize.org/docs/v6/core-concepts/model-basics/#model-synchronization) operation needs to be completed before we can do anything else. This ensures that all of our models are represented in the database as tables. If we have defined a model in our code that doesn't correspond to a table in the database, **sequelize.sync()** will automatically create it (as we have seen).
 
-> **NOTE:** We **do not** have to sync() the database before every operation. This is only required when the server starts to ensure that the models are correctly represented as tables within the database.
+:::info
+ We **do not** have to sync() the database before every operation. This is only required when the server starts to ensure that the models are correctly represented as tables within the database.
+:::
 
 Once our models have been successfully sync()'d with the database, we can start working with the data. You will notice that we use the familiar **then()** and **catch()** functions; this is because both sync() and create() return a **promise** and as we stated above, we must work with the data **after** the sync() operation has successfully completed.
 
@@ -219,8 +221,9 @@ const BlogEntry = sequelize.define('BlogEntry', {
   postDate: Sequelize.DATE, // Date the entry was posted
 });
 ```
-
-> **NOTE:** It is also possible to introduce **data validation** when we define our models. For a full list of available rules and how they're implemented, see: [Validators](https://sequelize.org/master/manual/validations-and-constraints.html) in the official documentation.
+:::info
+It is also possible to introduce **data validation** when we define our models. For a full list of available rules and how they're implemented, see: [Validators](https://sequelize.org/master/manual/validations-and-constraints.html) in the official documentation.
+:::
 
 ### Model Relationships / Associations
 
@@ -281,9 +284,11 @@ sequelize.sync().then(() => {
 
 Next, try running this code and take a look at your database in pgAdmin. You should see that two new tables, **"Users"** and **"Tasks"** have been created, with **"Jason Bourne"** inside the "User" table and **"Task 1"** and **"Task 2"** inside the "Task" table. The two new tasks will both have a **UserId** matching "Jason Bourne"'s id. We have achieved the one-to-many relationship between this user and his tasks.
 
-> **NOTE:** Sequelize also supports other types of relationships using:
->
-> - hasOne()
-> - belongsToMany()
->
-> For more information, refer to ["Associations"](https://sequelize.org/docs/v6/core-concepts/assocs/) in the official documentation.
+:::info
+Sequelize also supports other types of relationships using:
+
+ - hasOne()
+ - belongsToMany()
+
+ For more information, refer to ["Associations"](https://sequelize.org/docs/v6/core-concepts/assocs/) in the official documentation.
+:::

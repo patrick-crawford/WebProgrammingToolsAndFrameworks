@@ -33,9 +33,11 @@ In the above code, we have modified the "action" to submit to a new route "/uplo
 
 Recall, when working with url-encoded data, we had to use ["Middleware"](Advanced-Routing-Middleware/middleware.md) (specifically the built-in middleware: [express.urlencoded()](Advanced-Routing-Middleware/middleware.md#expressurlencoded)) to process the data and deliver it in a format that we can process. This is also the case for "multipart/form-data", however there are no available built-in middleware functions that we can use. Instead, we will use the popular third-party middleware: ["Multer"](https://www.npmjs.com/package/multer)
 
-> Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files. It is written on top of [busboy](https://github.com/mscdex/busboy) for maximum efficiency.
->
-> **NOTE:** Multer will not process any form which is not multipart (multipart/form-data).
+:::info
+ Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files. It is written on top of [busboy](https://github.com/mscdex/busboy) for maximum efficiency.
+
+ Multer will not process any form which is not multipart (multipart/form-data).
+:::
 
 To get started using Multer, we will need to install it:
 

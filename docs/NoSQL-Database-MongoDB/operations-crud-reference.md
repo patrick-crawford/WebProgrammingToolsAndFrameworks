@@ -76,7 +76,9 @@ For complex queries (ie: ["greater than"](https://docs.mongodb.com/manual/refere
 
 To update documents in the database, we use the [updateOne()](<https://mongoosejs.com/docs/api/model.html#Model.updateOne()>) / [updateMany()](<https://mongoosejs.com/docs/api/model.html#Model.updateMany()>) methods on the model object (ie: "Company"). We typically pass these function two arguments: the query to select which documents to update and the fields to set for the documents that match the query.
 
-> **NOTE:** See [update operators](https://docs.mongodb.com/manual/reference/operator/update/), ie: [$set](https://docs.mongodb.com/manual/reference/operator/update/set/), [$push](https://docs.mongodb.com/manual/reference/operator/update/push/) and [$addToSet](https://docs.mongodb.com/manual/reference/operator/update/addToSet/) for more information.
+:::info
+See [update operators](https://docs.mongodb.com/manual/reference/operator/update/), ie: [\$set](https://docs.mongodb.com/manual/reference/operator/update/set/), [\$push](https://docs.mongodb.com/manual/reference/operator/update/push/) and [\$addToSet](https://docs.mongodb.com/manual/reference/operator/update/addToSet/) for more information.
+:::
 
 <!-- prettier-ignore-start -->
 ```js

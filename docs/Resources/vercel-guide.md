@@ -103,7 +103,8 @@ Once you have configured your code for Vercel and you are ready to publish it, t
 
 1. Finally, click the "Source Control" icon in the left bar (it should have a blue dot next to it) and type **"initial commit"** for the message in the "Message" box. Once this is done, click the checkmark above the message box to commit your changes.
 
-   **NOTE:** If, at this point, you receive the error: "Git: Failed to execute git", try executing the following commands in the integrated terminal:
+   :::caution
+   If, at this point, you receive the error: "Git: Failed to execute git", try executing the following commands in the integrated terminal:
 
    ```
    git config --global user.email "you@example.com"
@@ -111,6 +112,7 @@ Once you have configured your code for Vercel and you are ready to publish it, t
    ```
 
    Once this is complete, attempt to click the checkmark again to commit your changes.
+   :::
 
 ### Create a GitHub Repository
 
@@ -159,7 +161,9 @@ where **URL** is the remote repository URL that you have copied in the previous 
     git push origin master
     ```
 
-    > **Important Note:** If at this point, you see the error: "src refspec master does not match any" then "master" is not set as your default branch. Execute the command `git status` to determine which branch you're on (it may be "main") and push that instead, ie: `git push origin main`, for example
+    :::caution
+    If at this point, you see the error: "src refspec master does not match any" then "master" is not set as your default branch. Execute the command `git status` to determine which branch you're on (it may be "main") and push that instead, ie: `git push origin main`, for example
+    :::
 
 You can verify that the code was pushed by going back to your Browser and opening your GitHub repository.
 

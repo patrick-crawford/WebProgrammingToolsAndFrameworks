@@ -42,7 +42,9 @@ If we wish to incorporate Bootstrap into our projects, we can link to the files 
 ></script>
 ```
 
-> **NOTE:** It is important that we include the CDN links _before_ our own CSS / JS.
+:::caution
+It is important that we include the CDN links _before_ our own CSS / JS.
+:::
 
 ### Materialize
 
@@ -139,8 +141,9 @@ Finally, to make sure our new "sass" CLI works to "watch" our **.scss** files fo
   "build-css": "sass --no-source-map --watch scss:public/css"
 }
 ```
-
-> **NOTE:** From the documentation: "When compiling whole directories, Sass will ignore partial files whose names begin with \_. You can use partials to separate out your stylesheets without creating a bunch of unnecessary output files." This is why we do not get a "\_reset.css" file as a result of our build step (below)
+:::info
+From the documentation: "When compiling whole directories, Sass will ignore partial files whose names begin with \_. You can use partials to separate out your stylesheets without creating a bunch of unnecessary output files." This is why we do not get a "\_reset.css" file as a result of our build step (below)
+:::
 
 Notice how the "build-css" script is set to run "sass" with "**scss**" as the **_source_** and "**public/css**" as the **_destination_**. We also use the **--no-source-map** and **--watch** flags to ensure that the command will not generate a [source map](https://web.dev/source-maps/) as well as "watch" our source directory for changes and automatically re-compile on save.
 

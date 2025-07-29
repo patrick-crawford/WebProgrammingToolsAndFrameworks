@@ -84,7 +84,9 @@ sequelize.sync().then(() => {
 
 Here, we are once again using a reference to our "Name" model. This time we are using it to fetch data from the "Name" table using the [findAll()](https://sequelize.org/docs/v6/core-concepts/model-querying-basics/#simple-select-queries) method. This method takes a number of configuration options in it's object parameter, such as **attributes**, which allows you to limit the columns that are returned (in this case we only want 'fName') and a **where** parameter that enables us to specify conditions that the data must meet to be returned. In the above example, **id** must have a value of **2**.
 
-> **NOTE:** It is important to note that trying to log a model instance directly to console.log (ie: `console.log(data[i])`) will produce a lot of clutter, since Sequelize instances have a lot of things attached to them. Instead, you can use the **.toJSON()** method (which automatically guarantees the instances to be JSON.stringify-ed well). See [sequelize.org - logging instances](https://sequelize.org/docs/v6/core-concepts/model-instances/#note-logging-instances) for more information.
+:::caution
+It is important to note that trying to log a model instance directly to console.log (ie: `console.log(data[i])`) will produce a lot of clutter, since Sequelize instances have a lot of things attached to them. Instead, you can use the **.toJSON()** method (which automatically guarantees the instances to be JSON.stringify-ed well). See [sequelize.org - logging instances](https://sequelize.org/docs/v6/core-concepts/model-instances/#note-logging-instances) for more information.
+:::
 
 We can also specify an [order](https://sequelize.org/docs/v6/core-concepts/model-querying-basics/#ordering) that the returned data should be in, ie:
 

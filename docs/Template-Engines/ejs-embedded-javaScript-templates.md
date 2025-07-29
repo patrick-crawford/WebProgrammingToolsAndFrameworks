@@ -129,9 +129,11 @@ The `<%= ... %>` is not the only delimiter available to us. EJS also provides a 
   <% }) %>
   ```
 
-> **NOTE:** Delimiters that output a value (ie "HTML escaped" / "unescaped") are also capable of executing JavaScript expressions. For example, if "someValue" is a string, we could use the following code:
->
-> `<%= someValue.toUpperCase() %>`
+:::info
+Delimiters that output a value (ie "HTML escaped" / "unescaped") are also capable of executing JavaScript expressions. For example, if "someValue" is a string, we could use the following code:
+
+ `<%= someValue.toUpperCase() %>`
+:::
 
 ### Includes / "Partials"
 
@@ -159,7 +161,9 @@ Notice how our partial template includes a block of reusable HTML as well as an 
 
 Here, we have used the "unescaped" delimiter to ensure that the HTML within the "partial" is correctly rendered. Additionally, the second parameter contains an object that we an pass to our partial (in this case, the value of the "page" variable)
 
-> **NOTE:** Partial views have access to the data in the template in which they are placed. For example, if the "header" partial (above) was placed in the viewData template, it would have access to the "data" object and could render "data.name", for example
+:::info
+Partial views have access to the data in the template in which they are placed. For example, if the "header" partial (above) was placed in the viewData template, it would have access to the "data" object and could render "data.name", for example
+:::
 
 ## Logic
 
@@ -355,4 +359,6 @@ Therefore, we can leverage the "unescaped" tag to conditionally highlight each o
 ```
 <!-- prettier-ignore-end -->
 
-> **NOTE:** If you wish to use EJS with full layout support, consider the NPM package: [express-ejs-layouts](https://www.npmjs.com/package/express-ejs-layouts)
+:::info
+If you wish to use EJS with full layout support, consider the NPM package: [express-ejs-layouts](https://www.npmjs.com/package/express-ejs-layouts)
+:::

@@ -244,9 +244,10 @@ app.post('/login', (req, res) => {
   }
 });
 ```
+:::info
+If we also wish to implement "log out" functionality, we could **reset** the session with the following code:
 
-> **NOTE:** If we also wish to implement "log out" functionality, we could **reset** the session with the following code:
->
-> ```js
-> req.session.reset();
-> ```
+ ```js
+ req.session.reset();
+ ```
+:::

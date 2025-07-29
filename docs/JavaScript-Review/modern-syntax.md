@@ -47,12 +47,15 @@ let squared = num => num * num;
 ```
 <!-- prettier-ignore-end -->
 
-> **NOTE:** if there are 0 parameters to the function, empty round brackets must be used, ie:
->
-> ```js
-> let getHello = () => 'Hello World';
-> ```
+:::info
 
+If there are 0 parameters to the function, empty round brackets must be used, ie:
+
+ ```js
+ let getHello = () => 'Hello World';
+ ```
+
+:::
 #### Lexical "this"
 
 Arrow functions are great for creating simplified code that is easier to read (sometimes referred to as "syntax sugar"), however there is another very useful and slightly misleading feature that we have yet to discuss: the notion of a "lexical 'this'". Recall that when we added the "outputNameDelay" method to the architect object, we had to overcome the issue with "this" pointing at the incorrect object by introducing a new local variable, "that":
@@ -147,15 +150,16 @@ let sample = ['A', 'B', 'C'];
 sample.forEach((element, index) => console.log(element + ' at index: ' + index));
 ```
 
-> **NOTE:** There are many other methods similar to "forEach" that serve to:
->
-> - [Filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) the array
-> - [Find](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find) elements in the array
-> - [Reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) the array to a single value
-> - Test if the array contains [some](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some) element that meets a specific criteria
-> - Test if [every](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every) element of the array meets a specific criteria
-> - [and so on...](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+:::info
+There are many other methods similar to "forEach" that serve to:
 
+ - [Filter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) the array
+ - [Find](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find) elements in the array
+ - [Reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce) the array to a single value
+ - Test if the array contains [some](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some) element that meets a specific criteria
+ - Test if [every](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every) element of the array meets a specific criteria
+ - [and so on...](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+:::
 ### Destructuring Elements
 
 As we have seen above, ES6 introduced the ["destructuring assignment"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment). We used this feature to make the syntax for extracting properties from objects more concise and to clarify function parameters. Fortunately, this feature is also available for arrays using a similar process:
@@ -216,19 +220,21 @@ console.log(sample3); // [ 'A', 'B', 'C', 'D', 'E', 'F' ]
 
 By using the "..." syntax, we're essentially saying "the elements of the array".
 
-> **NOTE:** This can be used for objects as well, ie:
->
-> ```js
-> let product = {
->   id: '145be9',
->   price: 1.35,
->   onSale: false,
-> };
->
-> let productWithStore = { ...product, store: '53' };
->
-> console.log(productWithStore); // { id: '145be9', price: 1.35, onSale: false, store: '53' }
-> ```
+:::info
+This can be used for objects as well, ie:
+
+ ```js
+ let product = {
+   id: '145be9',
+   price: 1.35,
+   onSale: false,
+ };
+
+ let productWithStore = { ...product, store: '53' };
+
+ console.log(productWithStore); // { id: '145be9', price: 1.35, onSale: false, store: '53' }
+ ```
+:::
 
 It is important to note however, that while we are using the "..." to create a new copy of arrays / objects, it is only a **"shallow" copy** (ie: it will not copy "nested" elements and properties, leaving a reference to the original array / object).
 
@@ -267,16 +273,18 @@ console.log(`My favourite shapes are:${shapes.map((shape, index) => ` ${index + 
 // My favourite shapes are: 1: circle, 2: square, 3: triangle
 ```
 
-> **NOTE:** We also have the added bonus of creating **multi-line** strings, ie:
->
-> ```js
-> let myString = `Hello
-> World`;
->
-> console.log(myString);
-> // Hello
-> // World
-> ```
+:::info
+We also have the added bonus of creating **multi-line** strings, ie:
+
+ ```js
+ let myString = `Hello
+ World`;
+
+ console.log(myString);
+ // Hello
+ // World
+ ```
+:::
 
 ## Errors
 

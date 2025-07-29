@@ -9,7 +9,9 @@ description: API Introduction & Implementation
 
 You may have heard of the term **REST** or **RESTful** API when reading about Web Programming. For our purposes, this can be described as way to use the HTTP protocol (ie, ["GET"](https://tools.ietf.org/html/rfc7231#section-4.3.1), ["POST"](https://tools.ietf.org/html/rfc7231#section-4.3.3), ["PUT"](https://tools.ietf.org/html/rfc7231#section-4.3.4), ["DELETE"](https://tools.ietf.org/html/rfc7231#section-4.3.5), etc.) with a standard message format (ie, JSON or XML) to preform CRUD operations (**C**reate, **R**ead, **U**pdate, **D**elete) on a data source.
 
-> **NOTE:** To truly create a _fully compliant_ **REST API** we must conform to the standards outlined in Roy Fielding's PhD dissertation, [Architectural Styles and the Design of Network-based Software Architectures](http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm). The design pattern that we are using here could more appropriately be called a "Web API".
+:::caution
+To truly create a _fully compliant_ **REST API** we must conform to the standards outlined in Roy Fielding's PhD dissertation, [Architectural Styles and the Design of Network-based Software Architectures](http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm). The design pattern that we are using here could more appropriately be called a "Web API".
+:::
 
 What makes this architecture so valuable, is that we remove any assumptions about how a client will access the data. A client could make HTTP requests to the API from a website, mobile app, etc. and it would be the website or app's job to correctly render the data once it's received. This simplifies development of front-end applications that use the data and even removes any specific programming language requirements for the client. If it can handle HTTP requests / responses and JSON, it can use our data.
 
@@ -154,4 +156,6 @@ app.put('/api/users/:userId', (req, res) => {
 
 If we try running the server to test the API again, we will see that the messages returned back from the server correctly echo the data sent to the API. We now have everything that we need to preform simple CRUD operations via AJAX on a data source using a web service. The only thing missing is the data store itself.
 
-> **NOTE:** If we want to allow the API to respond to requests from _outside_ the domain (this is what [https://jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com/) does), we will have to enable [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS) - see the third-party [CORS middleware](https://www.npmjs.com/package/cors)
+:::caution
+If we want to allow the API to respond to requests from _outside_ the domain (this is what [https://jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com/) does), we will have to enable [Cross-Origin Resource Sharing (CORS)](https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS) - see the third-party [CORS middleware](https://www.npmjs.com/package/cors)
+:::

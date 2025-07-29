@@ -93,24 +93,27 @@ const companySchema = new Schema({
   country: String,
 });
 ```
-
-> **NOTE:** With the "unique: true" property set on the "companyName" field, Mongoose will return "E11000 duplicate key error" if we try to save two companies with the same "companyName" field.
+:::info
+With the "unique: true" property set on the "companyName" field, Mongoose will return "E11000 duplicate key error" if we try to save two companies with the same "companyName" field.
+:::
 
 ## Adding Data
 
 Now that we have determined the "schema", let's see how Mongoose works to add our data ("The Kwik-E-Mart") to the database.
 
-> **NOTE:** For the below code to function correctly, you will need to place your connection string (determined earlier in [Introduction to MongoDB](NoSQL-Database-MongoDB/introduction-to-mongodb.md#obtaining-your-connection-string)), in place of the `'Your connection string here'`. You will **also** have to **update** it to include a database name. For example, if your connection string looks like the following:
->
-> ```
-> mongodb+srv://user:yourPassword@cluster0.abc123.mongodb.net/?retryWrites=true&w=majority
-> ```
->
-> You must update it to include a **database** name so that the default name: "test" is not used. For example, if you wish your database to be called "demo", you would update the connection string to include "demo" after "mongodb.net/", ie:
->
-> ```
-> mongodb+srv://user:yourPassword@cluster0.abc123.mongodb.net/demo?retryWrites=true&w=majority
-> ```
+:::caution
+For the below code to function correctly, you will need to place your connection string (determined earlier in [Introduction to MongoDB](NoSQL-Database-MongoDB/introduction-to-mongodb.md#obtaining-your-connection-string)), in place of the `'Your connection string here'`. You will **also** have to **update** it to include a database name. For example, if your connection string looks like the following:
+
+ ```
+ mongodb+srv://user:yourPassword@cluster0.abc123.mongodb.net/?retryWrites=true&w=majority
+ ```
+
+ You must update it to include a **database** name so that the default name: "test" is not used. For example, if you wish your database to be called "demo", you would update the connection string to include "demo" after "mongodb.net/", ie:
+
+ ```
+ mongodb+srv://user:yourPassword@cluster0.abc123.mongodb.net/demo?retryWrites=true&w=majority
+ ```
+:::
 
 ```js
 // require mongoose and setup the Schema
@@ -183,10 +186,12 @@ Company.find({ companyName: 'The Kwik-E-Mart' })
   });
 ```
 
-> **NOTE:** If you examine the output, you will notice that the data returned includes two extra fields, added by default to our document:
->
-> - \_id: A unique [ObjectID](https://docs.mongodb.com/manual/reference/bson-types/#std-label-objectid)
-> - \_\_v: The [versionKey](https://mongoosejs.com/docs/guide.html#versionKey)
+:::info
+ If you examine the output, you will notice that the data returned includes two extra fields, added by default to our document:
+
+ - \_id: A unique [ObjectID](https://docs.mongodb.com/manual/reference/bson-types/#std-label-objectid)
+ - \_\_v: The [versionKey](https://mongoosejs.com/docs/guide.html#versionKey)
+:::
 
 ### .exec()
 

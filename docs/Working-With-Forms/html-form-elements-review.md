@@ -21,7 +21,9 @@ The enctype is the encoding type. If you are working with forms that have file u
 </form>
 ```
 
-> **NOTE:** in the above example, "enctype" may be **omitted** since "application/x-www-form-urlencoded" is the default value for "enctype"
+:::info
+In the above example, "enctype" may be **omitted** since "application/x-www-form-urlencoded" is the default value for "enctype"
+:::
 
 ## Input
 
@@ -30,8 +32,9 @@ The [input](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input) ele
 ```html
 <input type="text" name="fullName" />
 ```
-
-> **NOTE:** We _must_ ensure that every form control includes a "name" field, which will be used to identify the form value, when submitted.
+:::caution
+We _must_ ensure that every form control includes a "name" field, which will be used to identify the form value, when submitted.
+:::
 
 There are also a multitude of additional _interactive_ [input 'types'](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types) that may be used, such as:
 

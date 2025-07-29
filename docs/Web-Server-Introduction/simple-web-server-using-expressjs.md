@@ -22,7 +22,9 @@ To get started working with Node.js and Express, we should create a new folder f
 
 Next, we must open the integrated terminal and create the all-important "package.json" file at the root of our "MyServer" folder, using the command **"npm init"**.
 
-> **NOTE:** You will be using all of the _default_ options when creating your package.json file
+:::info
+You will be using all of the _default_ options when creating your package.json file
+:::
 
 Once this is complete, you should have a new package.json file in your MyServer folder that looks like the following:
 
@@ -57,7 +59,7 @@ npm i express
 
 (where "i" is shorthand for the "install" command).
 
-Once this is complete, you should see that your "package.json" file has a new entry that looks like the following (**NOTE:** Your version may differ from the below):
+Once this is complete, you should see that your "package.json" file has a new entry that looks like the following (your version may differ from the below):
 
 ```json
 "dependencies": {
@@ -93,8 +95,9 @@ If we now want to start our server, we can simply execute the "server.js" file u
 ```bash
 node --watch server.js
 ```
-
-> **NOTE:** the "--watch" flag will cause Node to run in "watch" mode, which will restart the process when a change is detected
+:::info
+The "--watch" flag will cause Node to run in "watch" mode, which will restart the process when a change is detected
+:::
 
 If you open a browser to: `http://localhost:8080`, you should see the following message:
 
@@ -104,7 +107,9 @@ Cannot GET /
 
 **Congratulations!** Your web server is up and running! Unfortunately, we don't have any "routes" (ie: paths to pages / resources) defined yet, so the Express framework automatically generated a **404** error for the path that we tried to access (ie: GET /)
 
-> **NOTE:** To stop the server from running, you may use the `Ctrl+C` command from the integrated terminal in Visual Studio Code
+:::info
+To stop the server from running, you may use the `Ctrl+C` command from the integrated terminal in Visual Studio Code
+:::
 
 ### Simple 'GET' Routes
 
@@ -216,18 +221,20 @@ We could then link to it in our HTML documents the code:
 <link rel="stylesheet" href="/css/site.css" />
 ```
 
-> **NOTE:** The same pattern would work for images as well, ie:
->
-> ```
-> /MyServer
->   ↪ /public
->     ↪ /img
->       ↪ banner.jpg
-> ```
->
-> ```html
-> <img src="/img/banner.jpg" alt="site banner" />
-> ```
+:::info
+ The same pattern would work for images as well, ie:
+
+ ```
+ /MyServer
+   ↪ /public
+     ↪ /img
+       ↪ banner.jpg
+ ```
+
+ ```html
+ <img src="/img/banner.jpg" alt="site banner" />
+ ```
+:::
 
 Notice how we do not include "/public" in the `href` (or `src`) properties. This is because we will mark "/public" as the official "static" folder and all requests must made to resources _within_ the folder. To accomplish this in our server.js file, we can add the following code _above_ the other `app.get()` function calls:
 

@@ -73,8 +73,8 @@ fetch('https://jsonplaceholder.typicode.com/users/', {
     console.log(json);
   });
 ```
-
-**NOTE:** Our code is even shorter if we're simply doing a "GET" request, ie:
+:::info
+Our code is even shorter if we're simply doing a "GET" request, ie:
 
 ```javascript
 fetch('https://jsonplaceholder.typicode.com/users/')
@@ -83,6 +83,7 @@ fetch('https://jsonplaceholder.typicode.com/users/')
     console.log(json);
   });
 ```
+:::
 
 ## Handling Responses with an "Error" Status
 

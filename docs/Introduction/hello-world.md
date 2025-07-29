@@ -109,7 +109,9 @@ The [setInterval()](https://nodejs.org/docs/latest/api/timers.html#setintervalca
 <li><strong>[, …arg]</strong> Optional arguments to pass when the callback is called.</li>
 </ul>
 
-**Note:** Unless you want the interval to continue forever, you need to call <a href="https://nodejs.org/docs/latest/api/timers.html#clearintervaltimeout" target="_blank">clearInterval()</a> with the timeout object as a parameter to halt the interval
+:::info
+Unless you want the interval to continue forever, you need to call <a href="https://nodejs.org/docs/latest/api/timers.html#clearintervaltimeout" target="_blank">clearInterval()</a> with the timeout object as a parameter to halt the interval
+:::
 
 For example:
 

@@ -119,4 +119,6 @@ In this case, this issue occurs because during the conversion to JSON, the "incr
 { "current": 0 }
 ```
 
-> **NOTE:** For more information on how values are "stringified", refer to the MDN documentation on ["JSON.stringify()"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#description)
+:::info
+For more information on how values are "stringified", refer to the MDN documentation on ["JSON.stringify()"](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify#description)
+:::

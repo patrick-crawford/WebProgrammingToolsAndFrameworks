@@ -134,6 +134,8 @@ Depending on your web browser, you may observe a security warning if the system 
 
 ![https self signed certificate chrome](/img/https-self-signed-cert-chrome.png)
 
-> **NOTE:** If you do not see the option to "Proceed to localhost", then typing "**thisisunsafe**" will allow you to proceed.
+:::caution
+If you do not see the option to "Proceed to localhost", then typing "**thisisunsafe**" will allow you to proceed.
+:::
 
 Accept the warnings to add an exemption and proceed to the page.

@@ -23,13 +23,15 @@ Creates a block that is 150px [wide](https://tailwindcss.com//docs/width#fixed-w
 
 This is certainly a different approach to the previous CSS frameworks that we have seen. It adds a lot of extra markup to your "view" (".html") files and can be difficult to maintain and read. However, it does add a lot of flexibility and consistency to the user interface design without writing any CSS code yourself.
 
-> **NOTE:** To reduce repeating ourselves when using Tailwind, We can use the ["@apply" directive](https://tailwindcss.com/docs/functions-and-directives#apply-directive) to extract repeated utility patterns to custom CSS classes
->
-> ```css
-> .small-card-container {
->   @apply w-[150px] h-[80px] shadow-2xl bg-white rounded-lg flex justify-center items-center;
-> }
-> ```
+:::info
+ To reduce repeating ourselves when using Tailwind, We can use the ["@apply" directive](https://tailwindcss.com/docs/functions-and-directives#apply-directive) to extract repeated utility patterns to custom CSS classes
+
+ ```css
+ .small-card-container {
+   @apply w-[150px] h-[80px] shadow-2xl bg-white rounded-lg flex justify-center items-center;
+ }
+ ```
+:::
 
 If we are able to use this alongside some kind of "component library" that also adds expertly designed, pre-built user interface elements (such as Bootstrap's "btn"), it would be much quicker (and cleaner) for us to adopt in our projects. Fortunately, Tailwind has the notion of ["plugins"](https://tailwindcss.com//docs/plugins) which allow us to "register new styles for Tailwind" (this is where daisyUI comes in).
 
@@ -82,11 +84,13 @@ npm run tw:build
 
 **Congratulations!** You have crated a new main.css file with all of the required Tailwind CSS classes for your view, including "shadow-2xl", "bg-white", etc. Now, every time you decide to update any of your "view" files or "tailwind.css", you can re-run the `npm run tw:build` command to re-generate your optimized main.css file.
 
-> **NOTE:** Tailwind CSS Recommends the Visual Studio Extension ["Tailwind CSS IntelliSense"](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss), which has features such as:
->
-> - **Autocomplete:** Intelligent suggestions for class names, as well as CSS functions and directives
-> - **Linting:** Highlights errors and potential bugs in both your CSS and your markup
-> - **Hover Preview:** See the complete CSS for a Tailwind class name by hovering over it
+:::info
+Tailwind CSS Recommends the Visual Studio Extension ["Tailwind CSS IntelliSense"](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss), which has features such as:
+
+ - **Autocomplete:** Intelligent suggestions for class names, as well as CSS functions and directives
+ - **Linting:** Highlights errors and potential bugs in both your CSS and your markup
+ - **Hover Preview:** See the complete CSS for a Tailwind class name by hovering over it
+:::
 
 ## Introducing daisyUI
 
@@ -117,9 +121,11 @@ Once this is complete, the next step is to register them as "plugins" in the "ta
 @plugin "daisyui";
 ```
 
-> **NOTE:** The "@tailwindcss/typography" plugin is [recommended by daisyUI](https://daisyui.com/docs/layout-and-typography/#-1) and is **required** if we wish to see text such as headings and paragraphs **correctly styled**. To read more on this, including using the **"prose"** class ("that you can slap on any block of vanilla HTML content and turn it into a beautiful, well-formatted document"), see the following link to the documentation:
->
-> [https://daisyui.com/docs/layout-and-typography](https://daisyui.com/docs/layout-and-typography)
+:::caution
+ The "@tailwindcss/typography" plugin is [recommended by daisyUI](https://daisyui.com/docs/layout-and-typography/#-1) and is **required** if we wish to see text such as headings and paragraphs **correctly styled**. To read more on this, including using the **"prose"** class ("that you can slap on any block of vanilla HTML content and turn it into a beautiful, well-formatted document"), see the following link to the documentation:
+
+ [https://daisyui.com/docs/layout-and-typography](https://daisyui.com/docs/layout-and-typography)
+:::
 
 This should be all that is required to register daisyUI with Tailwind CSS. To verify that it did indeed work, try adding a component from daisyUI to one of your .html files using main.css. The simplest example is a [button](https://daisyui.com/components/button) - we'll use the "primary" variation:
 
@@ -165,7 +171,9 @@ At the time of writing, DaisyUI ships with a total of 52 Components. The library
 
 The following is a list of a few _key_ components that are used in most web applications, along with the (.html) code to include them in your views. For additional components and patterns, refer to the [official documentation](https://daisyui.com/docs).
 
-> **NOTE:** Do not forget to "build" your Tailwind CSS before testing newly added components / HTML to see the results.
+:::caution
+Do not forget to "build" your Tailwind CSS before testing newly added components / HTML to see the results.
+:::
 
 #### Navbar
 
@@ -238,7 +246,9 @@ Next, add the "responsive" version of the navigation bar _above_ the recently-mo
 
 This should provide a navigation bar that appears normal if the viewport is larger than the "sm" size (640px), and compressed (ie: converted to a drop-down menu with an appropriate icon) when the viewport is smaller.
 
-> **NOTE:** There is currently an issue where dropdowns do not close when clicking away on some mobile devices (iPhone / IOS) - see: ["Dropdown not closing when clicking outside on mobile #824"](https://github.com/saadeghi/daisyui/issues/824). At the time of writing, the fix involves setting a negative `tabindex` on the `<body>` element, ie: `<body tabIndex="-1">`
+:::caution
+There is currently an issue where dropdowns do not close when clicking away on some mobile devices (iPhone / IOS) - see: ["Dropdown not closing when clicking outside on mobile #824"](https://github.com/saadeghi/daisyui/issues/824). At the time of writing, the fix involves setting a negative `tabindex` on the `<body>` element, ie: `<body tabIndex="-1">`
+:::
 
 #### Grid System
 
@@ -260,23 +270,24 @@ To get started using the grid system, we will crate a responsive [grid](https://
 
 You will notice that the grid is also placed within a responsive ["container"](https://tailwindcss.com/docs/max-width#using-breakpoints-container), which ensures that the grid is given a correct width depending on the viewport size.
 
-> **NOTE:** You can specify more that one grid in a container. For example, if you wished to have a large, single column grid above the other items (serving as a title block, etc), you could update the code to use:
->
-> ```html
-> <div class="container mx-auto">
->   <div class="grid grid-cols-1 mb-4">
->     <div class="border-2">Title</div>
->   </div>
->   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
->     <div class="border-2">01</div>
->     <div class="border-2">02</div>
->     <div class="border-2">03</div>
->     <div class="border-2">04</div>
->     <div class="border-2">05</div>
->   </div>
-> </div>
-> ```
+:::info
+You can specify more that one grid in a container. For example, if you wished to have a large, single column grid above the other items (serving as a title block, etc), you could update the code to use:
 
+ ```html
+ <div class="container mx-auto">
+   <div class="grid grid-cols-1 mb-4">
+     <div class="border-2">Title</div>
+   </div>
+   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+     <div class="border-2">01</div>
+     <div class="border-2">02</div>
+     <div class="border-2">03</div>
+     <div class="border-2">04</div>
+     <div class="border-2">05</div>
+   </div>
+ </div>
+ ```
+:::
 #### Cards
 
 A "Card" is basically a user interface element that serves as a "content container" for a specific item to be presented to the user (ie: a product from a store, or service offered, etc). Cards typically include elements such as an image, title, description, call to action, and often incorporate subheadings or icons.
@@ -301,8 +312,9 @@ Fortunately, daisyUI has a [card component](https://daisyui.com/components/card)
   </div>
 </div>
 ```
-
-> **NOTE:** If you wish to position the card as a "grid" item, the "w-96" class can be removed and the entire "card" can be placed within the grid
+:::info
+If you wish to position the card as a "grid" item, the "w-96" class can be removed and the entire "card" can be placed within the grid
+:::
 
 For other options, such as ["responsive"](https://daisyui.com/components/card/#responsive-card-vertical-on-small-screen-horizontal-on-large-screen), ["custom colors"](https://daisyui.com/components/card/#card-with-custom-color), etc. please refer to the [documentation](https://daisyui.com/components/card/).
 
