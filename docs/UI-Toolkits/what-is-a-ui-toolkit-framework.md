@@ -84,6 +84,25 @@ As with other frameworks on this list, the simplest way to start is to use the m
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
 ```
 
+### Starling UI
+
+Starling UI is a lightweight UI toolkit that provides color tokens, typography, buttons, cards, navigation, a grid system, and even a simple modal with optional JavaScript helpers. You can include the entire toolkit or just the components you need.
+
+To get started, you can either include everything:
+
+```html
+<link rel="stylesheet" href="https://starlingui.netlify.app/sui.css" />
+```
+
+or just the pieces you need. For example, to include a button:
+
+```html
+<link rel="stylesheet" href="https://starlingui.netlify.app/utils/color.css" />
+<link rel="stylesheet" href="https://starlingui.netlify.app/pages/components/button/button.css" />
+
+<button class="sui_btn btn_outline">Click Me</button>
+```
+
 ### Foundation
 
 Finally, we should mention ["Foundation"](https://get.foundation/) - a framework released by ["Zurb"](https://zurb.com) back in 2011. It has gone through a number of major releases since then and (at the time of writing) is currently on version 6, released in 2015. Foundation has extensive documentation and while it may be more complex then some of the other frameworks, it has may resources such as ["starter projects"](https://get.foundation/sites/docs/starter-projects.html) and video tutorials to help new users. Interestingly, it also has a version that is used to help design ["responsive HTML emails"](https://get.foundation/emails/docs), which can be cumbersome and difficult.
@@ -141,6 +160,7 @@ Finally, to make sure our new "sass" CLI works to "watch" our **.scss** files fo
   "build-css": "sass --no-source-map --watch scss:public/css"
 }
 ```
+
 :::info
 From the documentation: "When compiling whole directories, Sass will ignore partial files whose names begin with \_. You can use partials to separate out your stylesheets without creating a bunch of unnecessary output files." This is why we do not get a "\_reset.css" file as a result of our build step (below)
 :::
@@ -179,7 +199,9 @@ When the Sass is processed, it takes the variables we define for the **$font-sta
 
 ```css
 body {
-  font: 100% Helvetica, sans-serif;
+  font:
+    100% Helvetica,
+    sans-serif;
   color: #333;
 }
 ```
@@ -254,7 +276,9 @@ ol {
 @use '_reset';
 
 body {
-  font: 100% Helvetica, sans-serif;
+  font:
+    100% Helvetica,
+    sans-serif;
   background-color: #efefef;
 }
 ```
@@ -271,7 +295,9 @@ ol {
 }
 
 body {
-  font: 100% Helvetica, sans-serif;
+  font:
+    100% Helvetica,
+    sans-serif;
   background-color: #efefef;
 }
 ```
