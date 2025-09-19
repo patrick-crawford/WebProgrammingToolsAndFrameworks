@@ -102,7 +102,9 @@ sequelize.sync().then(() => {
 });
 ```
 
-> **NOTE**: See the documentation for [advanced queries](https://sequelize.org/master/manual/querying.html) and [fetching associated elements](https://sequelize.org/docs/v6/advanced-association-concepts/eager-loading/#fetching-a-single-associated-element) with the "include" option when using [Model Relationships / Associations](/Relational-Database-Postgres/sequelize-orm-with-postgres#model-relationships--associations) (ie: `Task.findAll({include:[User]})` )
+:::info
+See the documentation for [advanced queries](https://sequelize.org/master/manual/querying.html) and [fetching associated elements](https://sequelize.org/docs/v6/advanced-association-concepts/eager-loading/#fetching-a-single-associated-element) with the "include" option when using [Model Relationships / Associations](/Relational-Database-Postgres/sequelize-orm-with-postgres#model-relationships--associations) (ie: `Task.findAll({include:[User]})` )
+:::
 
 ## Update
 

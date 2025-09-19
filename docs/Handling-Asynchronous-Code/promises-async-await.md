@@ -176,26 +176,29 @@ outputA()
   });
 ```
 
-> **NOTE**: Calling "resolve()" or "reject()" won't immediately exit the promise and invoke the related ".then()" or ".catch()" callback - it simply puts the promise in a "resolved" or "rejected" state and code immediately following the statement will still run, ie:
->
-> ```js
-> // ...
-> reject();
-> console.log('I will still be executed');
-> resolve(); // This promise will not be "resolved", since the resolve() call came after reject()
-> // this also works the other way around.  A promise has been "settled" once reject or resolve has been called
-> // ...
-> ```
->
-> If we want to immediately exit the function and prevent further execution of the code within the promise, we can invoke the "return" statement, immediately following the "resolve()" or "reject()" call, ie:
->
-> ```js
-> // ...
-> reject();
-> return;
-> console.log('I will not be executed');
-> // ...
-> ```
+:::info
+Calling "resolve()" or "reject()" won't immediately exit the promise and invoke the related ".then()" or ".catch()" callback - it simply puts the promise in a "resolved" or "rejected" state and code immediately following the statement will still run, ie:
+
+```js
+// ...
+reject();
+console.log('I will still be executed');
+resolve(); // This promise will not be "resolved", since the resolve() call came after reject()
+// this also works the other way around.  A promise has been "settled" once reject or resolve has been called
+// ...
+```
+
+If we want to immediately exit the function and prevent further execution of the code within the promise, we can invoke the "return" statement, immediately following the "resolve()" or "reject()" call, ie:
+
+```js
+// ...
+reject();
+return;
+console.log('I will not be executed');
+// ...
+```
+
+:::
 
 ### Putting it Together
 
@@ -311,12 +314,15 @@ You will also notice how the documentation mentions that if the promise is rejec
 UnhandledPromiseRejection: This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch().
 ```
 
-> **NOTE**: When using "async" to identify a function, you are implicitly **returning a Promise**. This is because async functions _cannot_ exist within the normal flow of execution (since they contain asynchronous code). If you do return a value from an "async" function, it will be the "resolved" value of the returned promise:
->
-> ```js
-> async function adder(num1, num2) {
->   return num1 + num2;
-> }
->
-> adder(1, 2).then((result) => console.log(result)); //3
-> ```
+:::info
+When using "async" to identify a function, you are implicitly **returning a Promise**. This is because async functions _cannot_ exist within the normal flow of execution (since they contain asynchronous code). If you do return a value from an "async" function, it will be the "resolved" value of the returned promise:
+
+```js
+async function adder(num1, num2) {
+  return num1 + num2;
+}
+
+adder(1, 2).then((result) => console.log(result)); //3
+```
+
+:::

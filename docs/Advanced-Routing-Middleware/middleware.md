@@ -41,7 +41,9 @@ app.get('/', (req, res) => {
 });
 ```
 
-> **NOTE**: If we fail to invoke the **next()** function or return a response, our server will hang and the client request will timeout.
+:::caution
+If we fail to invoke the **next()** function or return a response, our server will hang and the client request will timeout.
+:::
 
 ### Updating "req"
 
@@ -178,7 +180,6 @@ app.post('/urlencoded-test', (req, res) => {
 :::info
 The “extended” option utilizes the "qs" library which enables rich objects and arrays to be encoded into the URL-encoded format, allowing for a JSON-like experience with URL-encoded. For more information, please see the [qs library](https://www.npmjs.org/package/qs#readme).
 :::
-
 
 ### Third-Party Middleware
 
