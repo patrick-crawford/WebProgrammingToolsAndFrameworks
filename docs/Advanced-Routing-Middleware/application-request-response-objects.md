@@ -157,7 +157,7 @@ The "query" property is needed when we wish to read the values of the "query str
 >
 > [https://en.wikipedia.org/wiki/Query_string](https://en.wikipedia.org/wiki/Query_string)
 
-For example, if we wanted to match a GET request for the route "/products" that _also_ supports the optional query string value "onSale", ie: "/products?onSale=true", we could use the code:
+For example, if we wanted to match a GET request for the route "/products" that _also_ supports the optional query string value "onsale", ie: "/products?onsale=true", we could use the code:
 
 ```js
 app.get('/products', (req, res) => {
@@ -165,7 +165,7 @@ app.get('/products', (req, res) => {
 
   // NOTE: query parameter values are always strings
 
-  if (req.query.onSale == 'true') {
+  if (req.query.onsale == 'true') {
     result += ' (on sale)';
   }
 
