@@ -121,7 +121,7 @@ The `<%= ... %>` is not the only delimiter available to us. EJS also provides a 
 
 - **`<% ... %>`** (Scriptlet)
 
-  This is the tag that will enable us to insert **logic** into our templates (discussed further down). For example, if our "data" object contained an array of colors, ie: `['red','green','blue]`, we could use the following "scriptlet" tags to render the contents using a "forEach" loop:
+  This is the tag that will enable us to insert **logic** into our templates (discussed further down). For example, if our "data" object contained an array of colors, ie: `['red','green','blue']`, we could use the following "scriptlet" tags to render the contents using a "forEach" loop:
 
   ```ejs
   <% data.colors.forEach((color) => { %>
