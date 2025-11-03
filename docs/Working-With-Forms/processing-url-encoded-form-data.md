@@ -49,7 +49,7 @@ Let's begin by first creating a [Simple Web Server using Express.js](Web-Server-
 </form>
 ```
 
-Notice how the form element has _omitted_ the "enctype" attribute on the "form" element, as well as updated the action to `"/addEntry"` (instead of `"https://httpbin.org/post"`). This is because we will be using the **default** enctype ("application/x-www-form-urlencoded") and we wish to process the form on our own server, _instead_ of using "httpbin".
+Notice how the form element has _omitted_ the "enctype" attribute on the "form" element, as well as updated the action to `"/addEntry"` (instead of `"https://postman-echo.com/post"`). This is because we will be using the **default** enctype ("application/x-www-form-urlencoded") and we wish to process the form on our own server, _instead_ of using "httpbin".
 
 ## Body Parsing Middleware
 

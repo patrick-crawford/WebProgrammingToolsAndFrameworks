@@ -16,7 +16,7 @@ The [form](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form) eleme
 The enctype is the encoding type. If you are working with forms that have file uploads that accompany the form data, this value should be set to: ` multipart/form-data`, otherwise the default is `application/x-www-form-urlencoded`. The 'method' specifies which HTTP verb to use when making the submission request (ie: "GET: or "POST"). Finally, the 'action' attribute is the URL / route that the form will send the request to once it has been _submitted_.
 
 ```html
-<form method="post" enctype="application/x-www-form-urlencoded" action="https://httpbin.org/post">
+<form method="post" enctype="application/x-www-form-urlencoded" action="https://postman-echo.com/post">
   <!-- ... -->
 </form>
 ```
