@@ -21,17 +21,22 @@ From the PostgreSQL site, [postgresql.org](https://www.postgresql.org):
 
 This is a great choice for us for multiple reasons; it is open source, highly available, standards compliant and most importantly, works nicely with node.js.
 
-To get started, proceed to [https://neon.tech](https://neon.tech) and click on the **"Log in"** link at the top and log in with your GitHub account. Once you're logged in, follow the below steps to set up the database:
+To get started, proceed to [https://vercel.com/](https://vercel.com/) and click on the **"Log in"** link at the top and log in with your GitHub account. 
 
-1. in the "Get started with Neon for Free" page, enter a value for project Name, ie: **Seneca** and Database Name, ie: **SenecaDB** (We can add more databases later)
+Once you're logged in, click on the **"Integrations"** tab (next to "Projects") and choose the **"Browse Marketplace"** option and search for "Neon".  This should return a "storage" integration called "Neon".  Click this and choose **"Install"**.
 
-2. Leave "region" as the default value and Click the **Create Project** Button.
+Next, follow the below steps to set up the database:
 
-3. At the next screen, you should see a dropdown with "Connection String" selected. Click this and choose **Parameters only**.
 
-4. Next, click the **eye icon** to reveal your password (**NOTE** Also consider checking the "Pooled connection" checkbox if this app will be deployed in a serverless environment, such as Vercel)
+1. Choose the recommended "Region" option
 
-5. Copy the **PGHOST**, **PGDATABASE**, **PGUSER** and **PGPASSWORD** values
+2. Ensure that the "Free' plan is selected as the "Installation Plan" (this should be the default) and click **"Continue""**
+
+3. Enter a value for the **"Database Name"** and click **"Create"**.  Once it has completed, click **"Done"**
+
+4. You will now be shown a "Quickstart" Screen with the tab "env.local" selected.  Click the "Show secret" button to reveal the values.
+
+5. Finally, copy the **PGHOST**, **PGUSER**, **PGDATABASE**  and **PGPASSWORD** values (only) under **"# Parameters for constructing your own connection string"**
 
 ## pgAdmin
 
@@ -53,7 +58,7 @@ Once it is installed and you have opened the app, we need to configure it to con
     | **(Connection Tab) Username**             | Enter your "PGUSER" value here                                                                                  |
     | **(Connection Tab) Password**             | Enter your "PGPASSWORD" value here                                                                              |
 
-    Once you have entered all of your information, hit the "Save" button and click "Servers" in the left pane to expand your server connections. If you entered valid information for the above fields, you should see your Neon.tech Postgres DB Connection. Expand this item and the following **"Databases (2)"** item, and you should see your database. Expand this item, as well as the nested **"Schemas (1)"** item, followed by the **"public"** item, and you should be presented with something that looks like this:
+    Once you have entered all of your information, hit the "Save" button and click "Servers" in the left pane to expand your server connections. If you entered valid information for the above fields, you should see your Neon.tech Postgres DB Connection. Expand this item and the following **"Databases (2)"** item, and you should see a database called "neondb". Expand this item, as well as the nested **"Schemas (1)"** item, followed by the **"public"** item, and you should be presented with something that looks like this:
 
     ![DB in pgAdmin](/img/pgAdmin4.png)
 
