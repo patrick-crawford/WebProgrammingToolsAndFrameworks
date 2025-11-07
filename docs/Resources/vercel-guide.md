@@ -37,29 +37,6 @@ The best thing - **getting started is free!** - This is where we come in:
 
 Before we can start working with Vercel, we must make a few key changes to our code to ensure that it can be successfully deployed on Vercel. These include:
 
-### Adding a "vercel.json" file.
-
-For our applications (defined in a "server.js" file), we must add the following **"vercel.json"** file to the root of our project:
-
-```json
-{
-  "version": 2,
-  "builds": [
-    {
-      "src": "server.js",
-      "use": "@vercel/node",
-      "config": { "includeFiles": ["dist/**"] }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "server.js"
-    }
-  ]
-}
-```
-
 ### Setting the "views" Application Setting
 
 If you are using a template engine in your application (ie: EJS), then you will need to add the line:
