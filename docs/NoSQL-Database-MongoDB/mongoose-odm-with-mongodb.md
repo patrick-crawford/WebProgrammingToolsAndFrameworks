@@ -117,13 +117,11 @@ mongodb+srv://user:yourPassword@cluster0.abc123.mongodb.net/demo?retryWrites=tru
 
 :::
 
+<!-- prettier-ignore-start -->
 ```js
 // require mongoose and setup the Schema
 const mongoose = require('mongoose');
 let Schema = mongoose.Schema;
-
-// connect to Your MongoDB Atlas Database
-mongoose.connect('Your connection string here');
 
 // define the company schema
 let companySchema = new Schema({
@@ -136,31 +134,38 @@ let companySchema = new Schema({
   },
   country: String,
 });
+
 // register the Company model using the companySchema
 // use the companies collection in the db to store documents
 let Company = mongoose.model('companies', companySchema);
 
-// create a new company
-let kwikEMart = new Company({
-  companyName: 'The Kwik-E-Mart',
-  address: 'Springfield',
-  phone: '212-842-4923',
-  employeeCount: 3,
-  country: 'U.S.A',
-});
+// connect to Your MongoDB Atlas Database
+mongoose.connect('Your connection string here').then(()=>{
 
-// save the company
-kwikEMart
-  .save()
-  .then(() => {
-    console.log('The Kwik-E-Mart company was saved to the companies collection');
-    process.exit();
-  })
-  .catch((err) => {
-    console.log('There was an error saving the Kwik-E-Mart company');
-    process.exit();
+  // create a new company
+  let kwikEMart = new Company({
+    companyName: 'The Kwik-E-Mart',
+    address: 'Springfield',
+    phone: '212-842-4923',
+    employeeCount: 3,
+    country: 'U.S.A',
   });
+
+  // save the company
+  kwikEMart.save().then(() => {
+      console.log('The Kwik-E-Mart company was saved to the companies collection');
+      process.exit();
+    })
+    .catch((err) => {
+      console.log('There was an error saving the Kwik-E-Mart company');
+      process.exit();
+    });
+
+}).catch(err=>{
+  console.log(err);
+});
 ```
+<!-- prettier-ignore-end -->
 
 ## Reading Data
 
