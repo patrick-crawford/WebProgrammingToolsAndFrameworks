@@ -21,22 +21,21 @@ From the PostgreSQL site, [postgresql.org](https://www.postgresql.org):
 
 This is a great choice for us for multiple reasons; it is open source, highly available, standards compliant and most importantly, works nicely with node.js.
 
-To get started, proceed to [https://vercel.com/](https://vercel.com/) and click on the **"Log in"** link at the top and log in with your GitHub account. 
+To get started, proceed to [https://vercel.com/](https://vercel.com/) and click on the **"Log in"** link at the top and log in with your GitHub account.
 
-Once you're logged in, click on the **"Integrations"** tab (next to "Projects") and choose the **"Browse Marketplace"** option and search for "Neon".  This should return a "storage" integration called "Neon".  Click this and choose **"Install"**.
+Once you're logged in, click on the **"Integrations"** section and choose the **"Browse Marketplace"** option and search for "Neon". This should return a "storage" integration called "Neon". Click this and choose **"Install"**.
 
 Next, follow the below steps to set up the database:
-
 
 1. Choose the recommended "Region" option
 
 2. Ensure that the "Free' plan is selected as the "Installation Plan" (this should be the default) and click **"Continue""**
 
-3. Enter a value for the **"Database Name"** and click **"Create"**.  Once it has completed, click **"Done"**
+3. Enter a value for the **"Database Name"** and click **"Create"**. Once it has completed, click **"Done"**
 
-4. You will now be shown a "Quickstart" Screen with the tab "env.local" selected.  Click the "Show secret" button to reveal the values.
+4. You will now be shown a "Quickstart" Screen with the tab "env.local" selected. Click the "Show secret" button to reveal the values.
 
-5. Finally, copy the **PGHOST**, **PGUSER**, **PGDATABASE**  and **PGPASSWORD** values (only) under **"# Parameters for constructing your own connection string"**
+5. Finally, copy the **PGHOST**, **PGUSER**, **PGDATABASE** and **PGPASSWORD** values (only) under **"# Parameters for constructing your own connection string"**
 
 ## pgAdmin
 
