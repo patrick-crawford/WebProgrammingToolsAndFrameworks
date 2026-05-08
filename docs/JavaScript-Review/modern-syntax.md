@@ -7,7 +7,7 @@ description: Modern Syntax
 
 # Modern Syntax
 
-JavaScript is constantly evolving. Since 2015 with the release of ECMAScript 6 (ES6), there has been a [new release every year](https://webreference.com/javascript/basics/versions/). This steady release schedule means that it is extremely important to be familiar with some of the concepts released in the last few years as more and more examples, tutorials and online documentation make use of these features. It can be easy to fall behind and find some of the new syntax unusual or confusing.
+JavaScript is constantly evolving. Since 2015 with the release of ECMAScript 6 (ES6), there has been a [new release every year](https://en.wikipedia.org/wiki/ECMAScript_version_history). This steady release schedule means that it is extremely important to be familiar with some of the concepts released in the last few years as more and more examples, tutorials and online documentation make use of these features. It can be easy to fall behind and find some of the new syntax unusual or confusing.
 
 To help navigate these notes and other related documentation, we have outlined some of the more important, ubiquitous features released since ES6:
 
