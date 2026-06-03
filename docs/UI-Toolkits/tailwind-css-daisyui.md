@@ -191,7 +191,7 @@ The first component that we will discuss is the ["Navbar"](https://daisyui.com/c
       <li>
         <details>
           <summary>Parent</summary>
-          <ul class="p-2 bg-base-100 right-0">
+          <ul class="p-2 bg-base-100 right-0 z-[1]">
             <li><a>Link 1</a></li>
             <li><a>Link 2</a></li>
           </ul>
