@@ -195,7 +195,7 @@ In 2015, ECMAScript 6 was released and many important features were introduced, 
 - [Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
 - [and many more…](https://www.w3schools.com/js/js_es6.asp)
 
-Since then, development of ECMAScript has continued and new versions are [released yearly](https://webreference.com/javascript/basics/versions). For a comprehensive list of which features are supported in specific browsers, environments and runtimes, see:
+Since then, development of ECMAScript has continued and new versions are [released yearly](https://www.w3schools.com/js/js_versions.asp). For a comprehensive list of which features are supported in specific browsers, environments and runtimes, see:
 
 - [ECMAScript Compatibility Table](https://compat-table.github.io/compat-table/es2016plus/)
 
