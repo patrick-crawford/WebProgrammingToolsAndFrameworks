@@ -76,7 +76,7 @@ Another alternative is ["Bulma"](https://bulma.io): It was released in 2016 and 
 >
 > [https://bulma.io](https://bulma.io)
 
-You will notice that Bulma does not require any JS to run, making it more straightforward to incorporate into existing projects. It also provides a simple ["modular"](https://bulma.io/documentation/overview/modular) approach to including "only what you need" from the framework.
+You will notice that Bulma does not require any JS to run, making it more straightforward to incorporate into existing projects. It also provides a simple ["modular"](https://bulma.io/documentation/start/modular/) approach to including "only what you need" from the framework.
 
 As with other frameworks on this list, the simplest way to start is to use the minified CSS, available on the ["jsdelivr"](https://www.jsdelivr.com) CDN:
 
@@ -123,13 +123,13 @@ To get started using it, the simplest way is to use the CDN links:
 
 ## Introduction to Sass
 
-After exploring the documentation for the above frameworks, you will notice that all them make use of something called ["Sass"](https://sass-lang.com/):
+After exploring the documentation for the above frameworks, you will notice that most of them make use of something called ["Sass"](https://sass-lang.com/):
 
 > "CSS on its own can be fun, but stylesheets are getting larger, more complex, and harder to maintain. This is where a preprocessor can help. Sass has features that don't exist in CSS yet like nesting, mixins, inheritance, and other nifty goodies that help you write robust, maintainable CSS."
 >
 > [https://sass-lang.com/guide](https://sass-lang.com/guide)
 
-Sass, or "Syntactically Awesome StyleSheets" is a superset of CSS that adds power and elegance to the basic language. It allows you to use [variables](http://sass-lang.com/guide#topic-2), [nested rules](http://sass-lang.com/guide#topic-3), [mixins](http://sass-lang.com/guide#topic-6), [modules](http://sass-lang.com/guide#topic-5), [and more](https://sass-lang.com/documentation), all with a fully CSS-compatible syntax. Sass helps keep large stylesheets well-organized as well as getting small stylesheets up and running quickly. This is a natural choice for large CSS frameworks like those mentioned above.
+Sass, or "Syntactically Awesome Style Sheets" is a superset of CSS that adds power and elegance to the basic language. It allows you to use [variables](http://sass-lang.com/guide#topic-2), [nested rules](http://sass-lang.com/guide#topic-3), [mixins](http://sass-lang.com/guide#topic-6), [modules](http://sass-lang.com/guide#topic-5), [and more](https://sass-lang.com/documentation), all with a fully CSS-compatible syntax. Sass helps keep large stylesheets well-organized as well as getting small stylesheets up and running quickly. This is a natural choice for large CSS frameworks like those mentioned above.
 
 There are two syntaxes available for Sass. The first, known as SCSS (defined using the ".scss" extension) is an **extension** of the syntax of CSS while the other syntax SASS (defined using the ".sass" extension), provides a more concise way of writing CSS. It uses indentation rather than brackets to indicate nesting of selectors, and newlines rather than semicolons to separate properties.
 
