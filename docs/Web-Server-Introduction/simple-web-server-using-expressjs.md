@@ -115,7 +115,7 @@ To stop the server from running, you may use the `Ctrl+C` command from the integ
 
 As you have seen from running our server, not much is happening. Even if we try to navigate around to other paths such as "http://localhost:8080/about" (thereby making a "GET" request to the "/about" path (route)), we will keep getting the same 404 error: "Cannot GET". This is because we have not defined any "GET" routes within our server.
 
-To fix this, we must write code in our server.js file to correctly _respond_ to these types of requests. This can be accomplished using the ["app"](https://expressjs.com/en/api.html#app) object, that was used to start our server. If we wish to respond to a "GET" request, we must invoke a "GET" function and provide the target path as well as a "callback" function to handle the request. For example, if we wish to respond to a "GET" request on the "/" route, we would write the following code _before_ the call to app.listen();
+To fix this, we must write code in our server.js file to correctly _respond_ to these types of requests. This can be accomplished using the ["app"](https://expressjs.com/en/api/application/) object, that was used to start our server. If we wish to respond to a "GET" request, we must invoke a "GET" function and provide the target path as well as a "callback" function to handle the request. For example, if we wish to respond to a "GET" request on the "/" route, we would write the following code _before_ the call to app.listen();
 
 ```js
 app.get('/', (req, res) => {
@@ -125,12 +125,12 @@ app.get('/', (req, res) => {
 
 Here, we have specified a callback function to be executed when our server encounters a "GET" request for the "/" route. It will be invoked with the following parameters:
 
-- ["req"](https://expressjs.com/en/api.html#req): The "request" object represents the HTTP request and has properties for the request query string, parameters, body, HTTP headers, and so on.
-- ["res"](https://expressjs.com/en/api.html#res): "The "response" object represents the HTTP response that an Express app sends when it gets an HTTP request
+- ["req"](https://expressjs.com/en/api/request): The "request" object represents the HTTP request and has properties for the request query string, parameters, body, HTTP headers, and so on.
+- ["res"](https://expressjs.com/en/api/response): "The "response" object represents the HTTP response that an Express app sends when it gets an HTTP request
 
-In the above case, we use the "res" object's ["send"](https://expressjs.com/en/api.html#res.send) method to send a response back to the client.
+In the above case, we use the "res" object's ["send"](https://expressjs.com/en/api/response/#ressend) method to send a response back to the client.
 
-If we wish to have a second route, all we have to do is add another call to ["app.get()"](https://expressjs.com/en/api.html#app.get.method) with the new path. This is how we will define any path "route" that we wish our server to respond to, when it encounters a "GET" request from a web client (ie: web browser):
+If we wish to have a second route, all we have to do is add another call to ["app.get()"](https://expressjs.com/en/api/application/#appget) with the new path. This is how we will define any path "route" that we wish our server to respond to, when it encounters a "GET" request from a web client (ie: web browser):
 
 ```js
 app.get('/about', (req, res) => {
@@ -180,7 +180,7 @@ Returning plain text is fine to test if our routes are configured properly, howe
 </html>
 ```
 
-Next, we must update our route definitions to return these documents _instead_ of the simple messages: "Hello World!" and "About the Company". To achieve this, we will be using the ["sendFile()"](https://expressjs.com/en/api.html#res.sendFile) method of the "res" object, _instead_ of "send()".
+Next, we must update our route definitions to return these documents _instead_ of the simple messages: "Hello World!" and "About the Company". To achieve this, we will be using the ["sendFile()"](https://expressjs.com/en/api/response/#ressendfile) method of the "res" object, _instead_ of "send()".
 
 For "sendFile()" to function correctly, we must provide an **absolute** path to the file we wish to send as a parameter to the function. As you know, we cannot hard-code this path into our server.js, as this path will differ depending on which machine is executing the code - for example: the service the app is deployed on, vs. your local computer.
 
@@ -242,7 +242,7 @@ Notice how we do not include "/public" in the `href` (or `src`) properties. This
 app.use(express.static('public'));
 ```
 
-Here, we have used ["express.static()"](https://expressjs.com/en/api.html#express.static) - a built-in [middleware](https://expressjs.com/en/guide/using-middleware.html#middleware.application) function (explained later in these notes) to mark the "public" directory as static. With this code in place, whenever a request is sent to our server, Express will first check to see if the requested resource exists in the "public" folder, before checking our other routes.
+Here, we have used ["express.static()"](https://expressjs.com/en/api/express/#expressstatic) - a built-in [middleware](https://expressjs.com/en/guide/using-middleware/#overview) function (explained later in these notes) to mark the "public" directory as static. With this code in place, whenever a request is sent to our server, Express will first check to see if the requested resource exists in the "public" folder, before checking our other routes.
 
 ## Public Hosting (Vercel)
 

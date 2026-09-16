@@ -26,7 +26,7 @@ From the above code, it is clear that there are three important objects that are
 
 ## The Application object
 
-The ["app"](https://expressjs.com/en/api.html#app) object in the example above represents the express main application object. It contains several methods for tasks, such as processing route requests, setting up middleware, and managing html views or view engines.
+The ["app"](https://expressjs.com/en/api/application) object in the example above represents the express main application object. It contains several methods for tasks, such as processing route requests, setting up middleware, and managing html views or view engines.
 
 In the above example, we set a route on the host to handle HTTP GET requests to “/”. This means any "GET" requests to localhost:8080/ will be sent to this function. A typical route handler in express (like the one above) is created by invoking a function on the app object using the HTTP method (verb) that matches the type of request and passing it two parameters: a string representing the route, and a callback function to invoke when the route is matched. In this case, we wish to handle GET requests for the default route "/" (typically requests from the browser to load the page initially).
 
@@ -90,7 +90,7 @@ app.listen(HTTP_PORT, () => {
 
 ### app.set()
 
-The "set" method assigns a value to a specific "setting". According to the documentation, you may store any value that you want in your own custom "setting", however [certain settings](https://expressjs.com/en/5x/api.html#app.settings.table) can be used to configure the behavior of the server. For example, we will be setting the value of the "view engine" setting when configuring our template engine.
+The "set" method assigns a value to a specific "setting". According to the documentation, you may store any value that you want in your own custom "setting", however [certain settings](https://expressjs.com/en/api/application/#application-settings) can be used to configure the behavior of the server. For example, we will be setting the value of the "view engine" setting when configuring our template engine.
 
 ### app.use()
 
@@ -100,7 +100,7 @@ This is discussed further in the next section: ["Middleware"](Advanced-Routing-M
 
 ## The Request object
 
-The ["req"](https://expressjs.com/en/api.html#req) object represents the object that contains all the information and metadata for the request sent _to_ the server. When you see examples of the request object in use, it will typically be referred to as ‘req’ (short for request object).
+The ["req"](https://expressjs.com/en/api/request/) object represents the object that contains all the information and metadata for the request sent _to_ the server. When you see examples of the request object in use, it will typically be referred to as ‘req’ (short for request object).
 
 Some of the commonly used request properties and methods used throughout these notes are:
 
@@ -193,7 +193,7 @@ Here, when a user requests the "/hello" route, they should see the text "Hello" 
 
 ## The Response object
 
-The ["res"](https://expressjs.com/en/api.html#res) object represents the object that contains all the information and metadata for a response sent _from_ the server. When you see examples of the response object in use it will typically be referred to as ‘res’ (short for response object). The data you send back from the server can be one of several different formats - the most common of which are HTML, JSON, CSS, JS and plain files (.pdf, .txt, .jpg, .png, etc).
+The ["res"](https://expressjs.com/en/api/response/) object represents the object that contains all the information and metadata for a response sent _from_ the server. When you see examples of the response object in use it will typically be referred to as ‘res’ (short for response object). The data you send back from the server can be one of several different formats - the most common of which are HTML, JSON, CSS, JS and plain files (.pdf, .txt, .jpg, .png, etc).
 
 Some of the commonly used response properties and methods used throughout these notes are:
 

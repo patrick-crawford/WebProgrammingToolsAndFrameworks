@@ -33,7 +33,7 @@ app.use((req, res, next) => {
 });
 ```
 
-Notice how we make use of the aforementioned [app.use()](https://expressjs.com/en/api.html#app.use) method to implement our middleware function. It looks very similar to a regular route handler, except it accepts a third parameter: **_next_** and (in this case) does not return anything to the client. It is because this function does not return anything to the client (ie: generate a "response"), that we must use the "next()" function - it simply calls the next middleware function, such as a route handler, ie:
+Notice how we make use of the aforementioned [app.use()](https://expressjs.com/en/api/application/index#appuse) method to implement our middleware function. It looks very similar to a regular route handler, except it accepts a third parameter: **_next_** and (in this case) does not return anything to the client. It is because this function does not return anything to the client (ie: generate a "response"), that we must use the "next()" function - it simply calls the next middleware function, such as a route handler, ie:
 
 ```js
 app.get('/', (req, res) => {
@@ -108,13 +108,13 @@ Now that we have seen how middleware is typically implemented within an Express 
 
 ### Application-Level Middleware
 
-[Application-level middleware](http://expressjs.com/en/guide/using-middleware.html#middleware.application) is bound to your entire application and can run when every request comes in or only when it matches a specified route.
+[Application-level middleware](https://expressjs.com/en/guide/using-middleware/#application-level-middleware) is bound to your entire application and can run when every request comes in or only when it matches a specified route.
 
 In the examples above, we have implemented "Application-level middleware".
 
 ### Router-Level Middleware
 
-[Router-level middleware](http://expressjs.com/en/guide/using-middleware.html#middleware.router) works the same way as application middleware but is attached to a separate router instance. Essentially, instead of "app.use()", a separate `express.Router()` instance is created and the middleware is applied to it, ie:
+[Router-level middleware](https://expressjs.com/en/guide/using-middleware/#router-level-middleware) works the same way as application middleware but is attached to a separate router instance. Essentially, instead of "app.use()", a separate `express.Router()` instance is created and the middleware is applied to it, ie:
 
 ```js
 const userRouter = express.Router();
@@ -125,11 +125,11 @@ userRouter.use((req, res, next) => {
 });
 ```
 
-> For more information on express.Router(), see the official documentation in the official Express [Routing](https://expressjs.com/en/guide/routing.html) documentation.
+> For more information on express.Router(), see the official documentation in the official Express [Routing](https://expressjs.com/en/guide/routing/) documentation.
 
 ### Error-Handling Middleware
 
-[Error-handling middleware](http://expressjs.com/en/guide/using-middleware.html#middleware.error-handling) is defined with 4 parameters in the callback function, ie: (err, req, res, next). We must specify all 4 parameters so that express can differentiate it from a regular middleware function. Error handling middleware is invoked either when a regular middleware function calls next(err) instead of next(), or when exceptions occur in your route handlers. Like our "404" example above, error handling middleware should be placed _below_ your route handlers. For example:
+[Error-handling middleware](https://expressjs.com/en/guide/using-middleware/#error-handling-middleware) is defined with 4 parameters in the callback function, ie: (err, req, res, next). We must specify all 4 parameters so that express can differentiate it from a regular middleware function. Error handling middleware is invoked either when a regular middleware function calls next(err) instead of next(), or when exceptions occur in your route handlers. Like our "404" example above, error handling middleware should be placed _below_ your route handlers. For example:
 
 ```js
 app.get('/error-test', (req, res) => {
@@ -143,7 +143,7 @@ app.use((err, req, res, next) => {
 
 ### Built-In Middleware
 
-There are three types of [built-in middleware](http://expressjs.com/en/guide/using-middleware.html#middleware.built-in) functions available for us to use:
+There are three types of [built-in middleware](https://expressjs.com/en/guide/using-middleware/#built-in-middleware) functions available for us to use:
 
 #### express.static()
 
@@ -183,7 +183,7 @@ The “extended” option utilizes the "qs" library which enables rich objects a
 
 ### Third-Party Middleware
 
-Since Express 4.x, previously included middleware that did common things such as handle cookies, or handle file uploads, have been moved to individual [third-party middleware](https://expressjs.com/en/guide/using-middleware.html#middleware.third-party) packages.
+Since Express 4.x, previously included middleware that did common things such as handle cookies, or handle file uploads, have been moved to individual [third-party middleware](https://expressjs.com/en/guide/using-middleware/#third-party-middleware) packages.
 
 For example, parsing cookies requires the installation of [cookie-parser](https://expressjs.com/en/resources/middleware/cookie-parser.html):
 

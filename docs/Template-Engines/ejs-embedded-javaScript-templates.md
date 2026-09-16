@@ -85,7 +85,7 @@ In order to set this up correctly and get express to understand the file above, 
     });
     ```
 
-Now, the route no longer returns a string consisting of our HTML + data using res.send(), but instead invokes the [render](http://expressjs.com/en/api.html#res.render) method on the [response](http://expressjs.com/en/api.html#res) object (res). We pass the name of our new file without the extension (ie: "viewData" instead of "viewData.ejs"), and a "data" object to hold all of our data (someData).
+Now, the route no longer returns a string consisting of our HTML + data using res.send(), but instead invokes the [render](https://expressjs.com/en/api/response/#resrender) method on the [response](https://expressjs.com/en/api/response) object (res). We pass the name of our new file without the extension (ie: "viewData" instead of "viewData.ejs"), and a "data" object to hold all of our data (someData).
 
 ## EJS Syntax
 

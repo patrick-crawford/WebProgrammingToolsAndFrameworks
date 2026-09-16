@@ -77,7 +77,7 @@ While this does indeed work and the file is uploaded to the correct destination 
 
 ## Additional Configuration (diskStorage)
 
-In order to customize the filename of the upload, we will need to use the ["diskStorage"](http://expressjs.com/en/resources/middleware/multer.html) option when we configure our "upload" middleware. Here, instead of creating "upload" using `multer({ dest: 'uploads/' });`, we will use the following "diskStorage" configuration:
+In order to customize the filename of the upload, we will need to use the ["diskStorage"](https://expressjs.com/en/resources/middleware/multer/#diskstorage) option when we configure our "upload" middleware. Here, instead of creating "upload" using `multer({ dest: 'uploads/' });`, we will use the following "diskStorage" configuration:
 
 ```js
 const storage = multer.diskStorage({

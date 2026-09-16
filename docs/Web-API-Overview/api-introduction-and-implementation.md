@@ -65,7 +65,7 @@ app.listen(HTTP_PORT, () => {
 });
 ```
 
-Here, we have made use of the [request](https://expressjs.com/en/api.html#req) object's [params method](https://expressjs.com/en/api.html#req.params) to identify the specific user that needs to be fetched, updated or deleted based on the URL alone. In a sense, what we're allowing here is for the URL + HTTP Method to act as a way of querying the data source, as **/api/users/3**, **/api/users/4923** or even **/api/users/twelve** will all be accepted. They may not necessarily return valid data, but the routes will be found by our server and we can attempt to preform the requested operation.
+Here, we have made use of the [request](https://expressjs.com/en/api/request/) object's [params method](https://expressjs.com/en/api/request/#reqparams) to identify the specific user that needs to be fetched, updated or deleted based on the URL alone. In a sense, what we're allowing here is for the URL + HTTP Method to act as a way of querying the data source, as **/api/users/3**, **/api/users/4923** or even **/api/users/twelve** will all be accepted. They may not necessarily return valid data, but the routes will be found by our server and we can attempt to preform the requested operation.
 
 ## AJAX Testing (View)
 
@@ -136,7 +136,7 @@ If we wish to capture this information in our routes (so that we can make the ap
 app.use(express.json());
 ```
 
-This should allow our routes to access data passed to our API using the [req.body](https://expressjs.com/en/api.html#req.body) property. More specifically, we can update our POST & PUT routes to use req.body to fetch the new / updated **fName** and **lName** properties:
+This should allow our routes to access data passed to our API using the [req.body](https://expressjs.com/en/api/request/#reqbody) property. More specifically, we can update our POST & PUT routes to use req.body to fetch the new / updated **fName** and **lName** properties:
 
 ```js
 app.post('/api/users', (req, res) => {
