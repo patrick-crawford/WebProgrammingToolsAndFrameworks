@@ -220,7 +220,7 @@ const fs = require('fs');
 fs.readFile('names.csv', function (err, fileData) {
   if (err) console.log(err);
   else {
-    namesArray = fileData.toString().split(',');
+    let namesArray = fileData.toString().split(',');
     console.log(namesArray);
   }
 });
