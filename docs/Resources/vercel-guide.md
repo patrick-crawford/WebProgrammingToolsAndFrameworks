@@ -35,7 +35,7 @@ The best thing - **getting started is free!** - This is where we come in:
 
 ## Committing Your Code
 
-Once you have configured your code for Vercel and you are ready to publish it, the next steps are to initialize a Git repository at the root of your project folder and push your code to GitHub:
+Once you have the required software and are ready to publish your app, the next steps are to initialize a Git repository at the root of your project folder and push your code to GitHub:
 
 1. First, issue the following command from the integrated terminal at the "root" folder of your project: **git init** - this will initialize a local git repository in your helloworld folder.
 
