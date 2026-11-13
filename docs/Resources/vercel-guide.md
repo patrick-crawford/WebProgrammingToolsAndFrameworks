@@ -33,37 +33,6 @@ The best thing - **getting started is free!** - This is where we come in:
 
 - Lastly, for Vercel to gain access to our code, we must eventually place it on [GitHub](https://github.com/). Therefore, you must also have account on [GitHub](https://github.com/) before proceeding.
 
-## Configuring your App for Vercel
-
-Before we can start working with Vercel, we must make a few key changes to our code to ensure that it can be successfully deployed on Vercel. These include:
-
-### Setting the "views" Application Setting
-
-If you are using a template engine in your application (ie: EJS), then you will need to add the line:
-
-```js
-app.set('views', __dirname + '/views');
-```
-
-before your route definitions.
-
-### Updating your "express.static()" Middleware
-
-Similarly, if you are using the "express.static()" middleware to define a "public" folder, you must also include the "\_\_dirname" in your path, ie:
-
-```js
-app.use(express.static(__dirname + '/public'));
-```
-
-### Explicitly Requiring the "pg" Module
-
-If you are using Sequelize with the "pg" / "pg-hstore" modules, Vercel will give you an error if you do not explicitly require the "pg" module, ie:
-
-```js
-require('pg'); // explicitly require the "pg" module
-const Sequelize = require('sequelize');
-```
-
 ## Committing Your Code
 
 Once you have configured your code for Vercel and you are ready to publish it, the next steps are to initialize a Git repository at the root of your project folder and push your code to GitHub:

@@ -30,6 +30,7 @@ This will add both the **sequelize** and the **pg / pg-hstore** modules to our n
 Next, we need to update our **server.js** file to use the new modules so that we can test our connection to the database. If you're working with an existing application, comment out any existing Express app code (routes, listen, etc.) that you have in server.js (for the time being) and add the following code:
 
 ```js
+require('pg');
 const Sequelize = require('sequelize');
 
 // set up sequelize to point to our postgres database
@@ -72,6 +73,7 @@ As we know, sequelize is technically an [Object-Relational Mapping ("ORM") frame
 To see this in action, update your server.js file to use the following code:
 
 ```javascript
+require('pg');
 const Sequelize = require('sequelize');
 
 // set up sequelize to point to our postgres database
