@@ -34,7 +34,7 @@ In the above example, we make use of the **get** method of the app object to def
 If we wanted to send (JSON formatted) data only, we can use the following route (/getData):
 
 ```js
-app.get('/getData', (req res) => {
+app.get('/getData', (req, res) => {
   let someData = {
     name: 'John',
     age: 23,
@@ -59,7 +59,7 @@ The important thing to notice here is that our server can return HTML formatted 
 If we want to return a valid HTML5 page to the client that actually references data stored on the server, one solution would be to build a string that contains both **HTML code** and **data**, ie:
 
 ```js
-app.get('/viewData', (req res) => {
+app.get('/viewData', (req, res) => {
   let someData = {
     name: 'John',
     age: 23,

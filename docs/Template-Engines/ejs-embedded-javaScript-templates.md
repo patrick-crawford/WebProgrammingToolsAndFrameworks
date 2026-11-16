@@ -71,7 +71,7 @@ In order to set this up correctly and get express to understand the file above, 
 3.  The final step involves updating our "/viewData" route to "render" our EJS file with the data:
 
     ```javascript
-    app.get('/viewData', (req res) => {
+    app.get('/viewData', (req, res) => {
       let someData = {
         name: 'John',
         age: 23,
